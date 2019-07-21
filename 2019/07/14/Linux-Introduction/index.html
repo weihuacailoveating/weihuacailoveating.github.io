@@ -17,7 +17,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/14/Linux-Introduction/Linux_various.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/14/Linux-Introduction/file.png">
-<meta property="og:updated_time" content="2019-07-14T06:55:13.529Z">
+<meta property="og:updated_time" content="2019-07-21T13:41:08.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Introduction">
 <meta name="twitter:description" content="从大四毕业设计接触Linux也有两年了，这里总结一下对Linux的认识。 #1、Linux简介 Linux的全称是Linux is not Unix，继承于Unix但是有所不同，最初是由一个芬兰人林纳斯·托瓦兹（Linus Torvalds）在赫尔辛基大学上学时出于个人爱好而编写的。 2、Linux分支博主第一次接触Linux是用的Ubuntu 14.04，这是Linux众多发行版之一，Linux">
@@ -923,6 +923,50 @@
 </ul>
 <p>卸载/dev/hdc6</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]# umount /dev/hdc6</span><br></pre></td></tr></table></figure>
+
+<p>#9、Linux 命令大全</p>
+<p>常用命令在这里归纳一下。</p>
+<p>##9.1、ps命令</p>
+<p>Linux ps命令用于显示当前进程 (process) 的状态。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps [options] [--help]</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数</strong>：</p>
+<ul>
+<li>ps 的参数非常多, 在此仅列出几个常用的参数并大略介绍含义</li>
+<li>-A 列出所有的行程</li>
+<li>-w 显示加宽可以显示较多的资讯</li>
+<li>-au 显示较详细的资讯</li>
+<li>-aux 显示所有包含其他使用者的行程</li>
+<li>au(x) 输出格式 :</li>
+<li>USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND</li>
+<li>USER: 行程拥有者</li>
+<li>PID: pid</li>
+<li>%CPU: 占用的 CPU 使用率</li>
+<li>%MEM: 占用的记忆体使用率</li>
+<li>VSZ: 占用的虚拟记忆体大小</li>
+<li>RSS: 占用的记忆体大小</li>
+<li>TTY: 终端的次要装置号码 (minor device number of tty)</li>
+<li>STAT: 该行程的状态:</li>
+<li>D: 无法中断的休眠状态 (通常 IO 的进程)</li>
+<li>R: 正在执行中</li>
+<li>S: 静止状态</li>
+<li>T: 暂停执行</li>
+<li>Z: 不存在但暂时无法消除</li>
+<li>W: 没有足够的记忆体分页可分配</li>
+<li>&lt;: 高优先序的行程</li>
+<li>N: 低优先序的行程</li>
+<li>L: 有记忆体分页分配并锁在记忆体内 (实时系统或捱A I/O)</li>
+<li>START: 行程开始时间</li>
+<li>TIME: 执行的时间</li>
+<li>COMMAND:所执行的指令</li>
+</ul>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># ps -A 显示进程信息</span><br><span class="line">PID TTY     TIME CMD</span><br><span class="line">  1 ?    00:00:02 init</span><br><span class="line">  2 ?    00:00:00 kthreadd</span><br><span class="line">  3 ?    00:00:00 migration/0</span><br><span class="line">  4 ?    00:00:00 ksoftirqd/0</span><br><span class="line">  5 ?    00:00:00 watchdog/0</span><br><span class="line">  6 ?    00:00:00 events/0</span><br><span class="line">  7 ?    00:00:00 cpuset</span><br><span class="line">  8 ?    00:00:00 khelper</span><br><span class="line">  9 ?    00:00:00 netns</span><br><span class="line">  10 ?    00:00:00 async/mgr</span><br><span class="line">  11 ?    00:00:00 pm</span><br><span class="line">  12 ?    00:00:00 sync_supers</span><br><span class="line">  13 ?    00:00:00 bdi-default</span><br><span class="line">  14 ?    00:00:00 kintegrityd/0</span><br><span class="line">  15 ?    00:00:02 kblockd/0</span><br><span class="line">  16 ?    00:00:00 kacpid</span><br><span class="line">  17 ?    00:00:00 kacpi_notify</span><br><span class="line">  18 ?    00:00:00 kacpi_hotplug</span><br><span class="line">  19 ?    00:00:27 ata/0</span><br><span class="line">……省略部分结果</span><br><span class="line">30749 pts/0  00:00:15 gedit</span><br><span class="line">30886 ?    00:01:10 qtcreator.bin</span><br><span class="line">30894 ?    00:00:00 qtcreator.bin </span><br><span class="line">31160 ?    00:00:00 dhclient</span><br><span class="line">31211 ?    00:00:00 aptd</span><br><span class="line">31302 ?    00:00:00 sshd</span><br><span class="line">31374 pts/2  00:00:00 bash</span><br><span class="line">31396 pts/2  00:00:00 ps</span><br></pre></td></tr></table></figure>
+
+<p>显示指定用户信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># ps -u root //显示root进程用户信息</span><br><span class="line"> PID TTY     TIME CMD</span><br><span class="line">  1 ?    00:00:02 init</span><br><span class="line">  2 ?    00:00:00 kthreadd</span><br><span class="line">  3 ?    00:00:00 migration/0</span><br><span class="line">  4 ?    00:00:00 ksoftirqd/0</span><br><span class="line">  5 ?    00:00:00 watchdog/0</span><br><span class="line">  6 ?    00:00:00 events/0</span><br><span class="line">  7 ?    00:00:00 cpuset</span><br><span class="line">  8 ?    00:00:00 khelper</span><br><span class="line">  9 ?    00:00:00 netns</span><br><span class="line">  10 ?    00:00:00 async/mgr</span><br><span class="line">  11 ?    00:00:00 pm</span><br><span class="line">  12 ?    00:00:00 sync_supers</span><br><span class="line">  13 ?    00:00:00 bdi-default</span><br><span class="line">  14 ?    00:00:00 kintegrityd/0</span><br><span class="line">  15 ?    00:00:02 kblockd/0</span><br><span class="line">  16 ?    00:00:00 kacpid</span><br><span class="line">……省略部分结果</span><br><span class="line">30487 ?    00:00:06 gnome-terminal</span><br><span class="line">30488 ?    00:00:00 gnome-pty-helpe</span><br><span class="line">30489 pts/0  00:00:00 bash</span><br><span class="line">30670 ?    00:00:00 debconf-communi </span><br><span class="line">30749 pts/0  00:00:15 gedit</span><br><span class="line">30886 ?    00:01:10 qtcreator.bin</span><br><span class="line">30894 ?    00:00:00 qtcreator.bin </span><br><span class="line">31160 ?    00:00:00 dhclient</span><br><span class="line">31211 ?    00:00:00 aptd</span><br><span class="line">31302 ?    00:00:00 sshd</span><br><span class="line">31374 pts/2  00:00:00 bash</span><br><span class="line">31397 pts/2  00:00:00 ps</span><br></pre></td></tr></table></figure>
+
+<p>显示所有进程信息，连同命令行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># ps -ef //显示所有命令，连带命令行</span><br><span class="line">UID    PID PPID C STIME TTY     TIME CMD</span><br><span class="line">root     1   0 0 10:22 ?    00:00:02 /sbin/init</span><br><span class="line">root     2   0 0 10:22 ?    00:00:00 [kthreadd]</span><br><span class="line">root     3   2 0 10:22 ?    00:00:00 [migration/0]</span><br><span class="line">root     4   2 0 10:22 ?    00:00:00 [ksoftirqd/0]</span><br><span class="line">root     5   2 0 10:22 ?    00:00:00 [watchdog/0]</span><br><span class="line">root     6   2 0 10:22 ?    /usr/lib/NetworkManager</span><br><span class="line">……省略部分结果</span><br><span class="line">root   31302 2095 0 17:42 ?    00:00:00 sshd: root@pts/2 </span><br><span class="line">root   31374 31302 0 17:42 pts/2  00:00:00 -bash</span><br><span class="line">root   31400   1 0 17:46 ?    00:00:00 /usr/bin/python /usr/sbin/aptd</span><br><span class="line">root   31407 31374 0 17:48 pts/2  00:00:00 ps -ef</span><br></pre></td></tr></table></figure>
 
 <p>以上内容转载于<a href="https://www.runoob.com/linux/linux-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-tutorial.html</a>，尊重原创，从我做起！</p>
 
