@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[RISCV Introduction]]></title>
-    <url>%2F2019%2F07%2F30%2FRISCV-Introduction%2F</url>
+    <title><![CDATA[C++ Introduction]]></title>
+    <url>%2F2019%2F08%2F26%2FC%2B%2B-Introduction%2F</url>
+    <content type="text"><![CDATA[C++ 是一种中级语言，它是由 Bjarne Stroustrup 于 1979 年在贝尔实验室开始设计开发的。 C++ 进一步扩充和完善了 C 语言，是一种面向对象的程序设计语言。 C++ 可运行于多种平台上，如 Windows、MAC 操作系统以及 UNIX 的各种版本。]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[RISC-V Introduction]]></title>
+    <url>%2F2019%2F07%2F30%2FRISC-V-Introduction%2F</url>
     <content type="text"></content>
       <tags>
         <tag>RISCV</tag>
