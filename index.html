@@ -179,104 +179,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h1 id="1、makefile-简介"><a href="#1、makefile-简介" class="headerlink" title="1、makefile 简介"></a>1、makefile 简介</h1><p>make命令执行时，需要一个 makefile 文件，以告诉make命令如何去编译和链接程序。</p>
-<p>首先，我们用一个示例来说明makefile的书写规则。以便给大家一个感性认识。这个示例来源于gnu的make使用手册，在这个示例中，我们的工程有8个c文件，和3个头文件，我们要写一个makefile来告诉make命令如何编译和链接这几个文件。我们的规则是：</p>
-<p>1）如果这个工程没有编译过，那么我们的所有c文件都要编译并被链接。</p>
-<p>2）如果这个工程的某几个c文件被修改，那么我们只编译被修改的c文件，并链接目标程序。</p>
-<p>3）如果这个工程的头文件被改变了，那么我们需要编译引用了这几个头文件的c文件，并链接目标程序。</p>
-<p>只要我们的makefile写得够好，所有的这一切，我们只用一个make命令就可以完成，make命令会自动智能地根据当前的文件修改的情况来确定哪些文件需要重编译，从而自己编译所需要的文件和链接目标程序。</p>
-<h1 id="2、makefile的规则"><a href="#2、makefile的规则" class="headerlink" title="2、makefile的规则"></a>2、makefile的规则</h1><p>在讲述这个makefile之前，还是让我们先来粗略地看一看makefile的规则。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">target ... : prerequisites ...</span><br><span class="line">    command</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
-
-<p>target可以是一个object file(目标文件)，也可以是一个执行文件，还可以是一个标签（label）。对于标签这种特性，在后续的“伪目标”章节中会有叙述。</p>
-<p>prerequisites就是，要生成那个target所需要的文件或是目标。</p>
-<p>command也就是make需要执行的命令。（任意的shell命令）</p>
-<p>这是一个文件的依赖关系，也就是说，target这一个或多个的目标文件依赖于prerequisites中的文件，其生成规则定义在command中。说白一点就是说，prerequisites中如果有一个以上的文件比target文件要新的话，command所定义的命令就会被执行。这就是makefile的规则。也就是makefile中最核心的内容。</p>
-<p>说到底，makefile的东西就是这样一点，好像我的这篇文档也该结束了。呵呵。还不尽然，这是makefile的主线和核心，但要写好一个makefile还不够，我会以后面一点一点地结合我的工作经验给你慢慢道来。内容还多着呢。：）</p>
-<h1 id="3、一个示例"><a href="#3、一个示例" class="headerlink" title="3、一个示例"></a>3、一个示例</h1><p>正如前面所说的，如果一个工程有3个头文件，和8个c文件，我们为了完成前面所述的那三个规则，我们的makefile应该是下面这个样子的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">edit : main.o kbd.o command.o display.o \</span><br><span class="line">        insert.o search.o files.o utils.o       /*注释:如果后面这些.o文件比edit可执行文件新,那么才会去执行下面这句命令*/</span><br><span class="line">    cc -o edit main.o kbd.o command.o display.o \</span><br><span class="line">        insert.o search.o files.o utils.o</span><br><span class="line"></span><br><span class="line">main.o : main.c defs.h</span><br><span class="line">    cc -c main.c</span><br><span class="line">kbd.o : kbd.c defs.h command.h</span><br><span class="line">    cc -c kbd.c</span><br><span class="line">command.o : command.c defs.h command.h</span><br><span class="line">    cc -c command.c</span><br><span class="line">display.o : display.c defs.h buffer.h</span><br><span class="line">    cc -c display.c</span><br><span class="line">insert.o : insert.c defs.h buffer.h</span><br><span class="line">    cc -c insert.c</span><br><span class="line">search.o : search.c defs.h buffer.h</span><br><span class="line">    cc -c search.c</span><br><span class="line">files.o : files.c defs.h buffer.h command.h</span><br><span class="line">    cc -c files.c</span><br><span class="line">utils.o : utils.c defs.h</span><br><span class="line">    cc -c utils.c</span><br><span class="line">clean :</span><br><span class="line">    rm edit main.o kbd.o command.o display.o \</span><br><span class="line">        insert.o search.o files.o utils.o</span><br></pre></td></tr></table></figure>
-
-<p>反斜杠（\）是换行符的意思。这样比较便于makefile的易读。我们可以把这个内容保存在名字为“makefile”或“Makefile”的文件中，然后在该目录下直接输入命令“make”就可以生成执行文件edit。如果要删除执行文件和所有的中间目标文件，那么，只要简单地执行一下 “make clean”就可以了。</p>
-<p>在这个makefile中，目标文件（target）包含：执行文件edit和中间目标文件（*.o），依赖文件（prerequisites）就是冒号后面的那些 .c 文件和 .h文件。每一个 .o 文件都有一组依赖文件，而这些 .o 文件又是执行文件 edit 的依赖文件。依赖关系的实质上就是说明了目标文件是由哪些文件生成的，换言之，目标文件是哪些文件更新的。</p>
-<p>在定义好依赖关系后，后续的那一行定义了如何生成目标文件的操作系统命令，一定要以一个tab键作为开头。记住，make并不管命令是怎么工作的，他只管执行所定义的命令。make会比较targets文件和prerequisites文件的修改日期，如果prerequisites文件的日期要比targets文件的日期要新，或者target不存在的话，那么，make就会执行后续定义的命令。</p>
-<p>这里要说明一点的是，clean不是一个文件，它只不过是一个动作名字，有点像c语言中的lable一样，其冒号后什么也没有，那么，make就不会自动去找它的依赖性，也就不会自动执行其后所定义的命令。要执行其后的命令（不仅用于clean，其他lable同样适用），就要在make命令后明显得指出这个lable的名字。这样的方法非常有用，我们可以在一个makefile中定义不用的编译或是和编译无关的命令，比如程序的打包，程序的备份，等等。</p>
-<p>make是如何工作的在默认的方式下，也就是我们只输入make命令。那么，</p>
-<ol>
-<li>make会在当前目录下找名字叫“Makefile”或“makefile”的文件。</li>
-<li>如果找到，它会找文件中的第一个目标文件（target），在上面的例子中，他会找到“edit”这个文件，并把这个文件作为最终的目标文件。</li>
-<li>如果edit文件不存在，或是edit所依赖的后面的 .o 文件的文件修改时间要比edit这个文件新，那么，他就会执行后面所定义的命令来生成edit这个文件。</li>
-<li>如果edit所依赖的.o文件也不存在，那么make会在当前文件中找目标为.o文件的依赖性，如果找到则再根据那一个规则生成.o文件。（这有点像一个堆栈的过程）</li>
-<li>当然，你的C文件和H文件是存在的啦，于是make会生成 .o 文件，然后再用 .o 文件生成make的终极任务，也就是执行文件edit了。</li>
-</ol>
-<p>这就是整个make的依赖性，make会一层又一层地去找文件的依赖关系，直到最终编译出第一个目标文件。在找寻的过程中，如果出现错误，比如最后被依赖的文件找不到，那么make就会直接退出，并报错，而对于所定义的命令的错误，或是编译不成功，make根本不理。make只管文件的依赖性，即，如果在我找了依赖关系之后，冒号后面的文件还是不在，那么对不起，我就不工作啦。</p>
-<p>通过上述分析，我们知道，像clean这种，没有被第一个目标文件直接或间接关联，那么它后面所定义的命令将不会被自动执行，不过，我们可以显式要make执行。即命令——“make clean”，以此来清除所有的目标文件，以便重编译。</p>
-<p>于是在我们编程中，如果这个工程已被编译过了，当我们修改了其中一个源文件，比如file.c，那么根据我们的依赖性，我们的目标file.o会被重编译（也就是在这个依性关系后面所定义的命令），于是file.o的文件也是最新的啦，于是file.o的文件修改时间要比edit要新，所以 edit也会被重新链接了（详见edit目标文件后定义的命令）。</p>
-<p>而如果我们改变了“command.h”，那么，kdb.o、command.o和files.o都会被重编译，并且，edit会被重链接。</p>
-<h1 id="4、makefile中使用变量"><a href="#4、makefile中使用变量" class="headerlink" title="4、makefile中使用变量"></a>4、makefile中使用变量</h1><p>在上面的例子中，先让我们看看edit的规则：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">edit : main.o kbd.o command.o display.o \</span><br><span class="line">           insert.o search.o files.o utils.o</span><br><span class="line">       cc -o edit main.o kbd.o command.o display.o \</span><br><span class="line">           insert.o search.o files.o utils.o</span><br></pre></td></tr></table></figure>
-
-
-
-<p>我们可以看到[.o]文件的字符串被重复了两次，如果我们的工程需要加入一个新的[.o]文件，那么我们需要在两个地方加（应该是三个地方，还有一个地方在clean中）。当然，我们的makefile并不复杂，所以在两个地方加也不累，但如果makefile变得复杂，那么我们就有可能会忘掉一个需要加入的地方，而导致编译失败。所以，为了makefile的易维护，在makefile中我们可以使用变量。makefile的变量也就是一个字符串，理解成C语言中的宏可能会更好。</p>
-<p>比如，我们声明任意一变量名，叫objects, OBJECTS, objs, OBJS, obj, 或OBJ，只要能够表示obj文件即可。我们在makefile起始处按如下定义此变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">objects = main.o kbd.o command.o display.o \</span><br><span class="line">        insert.o search.o files.o utils.o</span><br><span class="line">于是，我们就可以很方便地在我们的makefile中以“$(objects)”的方式来使用这个变量了，于是我们的改良版makefile变为如下：</span><br><span class="line"></span><br><span class="line">objects = main.o kbd.o command.o display.o \</span><br><span class="line">        insert.o search.o files.o utils.o</span><br><span class="line"></span><br><span class="line">edit : $(objects)</span><br><span class="line">    cc -o edit $(objects)</span><br><span class="line">main.o : main.c defs.h</span><br><span class="line">    cc -c main.c</span><br><span class="line">kbd.o : kbd.c defs.h command.h</span><br><span class="line">    cc -c kbd.c</span><br><span class="line">command.o : command.c defs.h command.h</span><br><span class="line">    cc -c command.c</span><br><span class="line">display.o : display.c defs.h buffer.h</span><br><span class="line">    cc -c display.c</span><br><span class="line">insert.o : insert.c defs.h buffer.h</span><br><span class="line">    cc -c insert.c</span><br><span class="line">search.o : search.c defs.h buffer.h</span><br><span class="line">    cc -c search.c</span><br><span class="line">files.o : files.c defs.h buffer.h command.h</span><br><span class="line">    cc -c files.c</span><br><span class="line">utils.o : utils.c defs.h</span><br><span class="line">    cc -c utils.c</span><br><span class="line">clean :</span><br><span class="line">    rm edit $(objects)</span><br></pre></td></tr></table></figure>
-
-<p>如果有新的 .o 文件加入，我们只需简单地修改变量objects即可。</p>
-<p>更多关于变量的话题，我会在后续详细介绍。</p>
-<h1 id="5、让make自动推导"><a href="#5、让make自动推导" class="headerlink" title="5、让make自动推导"></a>5、让make自动推导</h1><p>GNU的make很强大，它可以自动推导文件以及文件依赖关系后面的命令，于是我们就没必要去在每一个[.o]文件后都写上类似的命令，因为，我们的make会自动识别，并自己推导命令。</p>
-<p>只要make看到一个[.o]文件，它就会自动的把[.c]文件加在依赖关系中，如果make找到一个whatever.o，那么 whatever.c，就会是whatever.o的依赖文件。并且 cc -c whatever.c 也会被推导出来，于是，我们的makefile 再也不用写得这么复杂。我们的新makefile又出炉了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">objects = main.o kbd.o command.o display.o \</span><br><span class="line">        insert.o search.o files.o utils.o</span><br><span class="line"> cc = gcc</span><br><span class="line"></span><br><span class="line">edit : $(objects)</span><br><span class="line">    cc -o edit $(objects)</span><br><span class="line"></span><br><span class="line">main.o : defs.h</span><br><span class="line">kbd.o : defs.h command.h</span><br><span class="line">command.o : defs.h command.h</span><br><span class="line">display.o : defs.h buffer.h</span><br><span class="line">insert.o : defs.h buffer.h</span><br><span class="line">search.o : defs.h buffer.h</span><br><span class="line">files.o : defs.h buffer.h command.h</span><br><span class="line">utils.o : defs.h</span><br><span class="line"></span><br><span class="line">.PHONY : clean</span><br><span class="line">clean :</span><br><span class="line">    rm edit $(objects)</span><br></pre></td></tr></table></figure>
-
-<p>这种方法，也就是make的“隐晦规则”。上面文件内容中，“.PHONY”表示，clean是个伪目标文件。</p>
-<p>关于更为详细的“隐晦规则”和“伪目标文件”，我会在后续给你一一道来。</p>
-<h1 id="6、另类风格的makefile"><a href="#6、另类风格的makefile" class="headerlink" title="6、另类风格的makefile"></a>6、另类风格的makefile</h1><p>既然我们的make可以自动推导命令，那么我看到那堆[.o]和[.h]的依赖就有点不爽，那么多的重复的[.h]，能不能把其收拢起来，好吧，没有问题，这个对于make来说很容易，谁叫它提供了自动推导命令和文件的功能呢？来看看最新风格的makefile吧。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">objects = main.o kbd.o command.o display.o \</span><br><span class="line">        insert.o search.o files.o utils.o</span><br><span class="line"></span><br><span class="line">edit : $(objects)</span><br><span class="line">    cc -o edit $(objects)</span><br><span class="line"></span><br><span class="line">$(objects) : defs.h</span><br><span class="line">kbd.o command.o files.o : command.h</span><br><span class="line">display.o insert.o search.o files.o : buffer.h</span><br><span class="line"></span><br><span class="line">.PHONY : clean</span><br><span class="line">clean :</span><br><span class="line">    rm edit $(objects)</span><br></pre></td></tr></table></figure>
-
-<p>这种风格，让我们的makefile变得很简单，但我们的文件依赖关系就显得有点凌乱了。鱼和熊掌不可兼得。还看你的喜好了。我是不喜欢这种风格的，一是文件的依赖关系看不清楚，二是如果文件一多，要加入几个新的.o文件，那就理不清楚了。</p>
-<h1 id="7、清空目标文件的规则"><a href="#7、清空目标文件的规则" class="headerlink" title="7、清空目标文件的规则"></a>7、清空目标文件的规则</h1><p>每个Makefile中都应该写一个清空目标文件（.o和执行文件）的规则，这不仅便于重编译，也很利于保持文件的清洁。这是一个“修养”（呵呵，还记得我的《编程修养》吗）。一般的风格都是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clean:</span><br><span class="line">    rm edit $(objects)</span><br></pre></td></tr></table></figure>
-
-<p>更为稳健的做法是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.PHONY : clean</span><br><span class="line">clean :</span><br><span class="line">    -rm edit $(objects)</span><br></pre></td></tr></table></figure>
-
-<p>前面说过，.PHONY意思表示clean是一个“伪目标”。而在rm命令前面加了一个小减号的意思就是，也许某些文件出现问题，但不要管，继续做后面的事。当然，clean的规则不要放在文件的开头，不然，这就会变成make的默认目标，相信谁也不愿意这样。不成文的规矩是——“clean从来都是放在文件的最后”。</p>
-<p>上面就是一个makefile的概貌，也是makefile的基础，下面还有很多makefile的相关细节，准备好了吗？准备好了就来。</p>
-<h1 id="8、Makefile里有什么？"><a href="#8、Makefile里有什么？" class="headerlink" title="8、Makefile里有什么？"></a>8、Makefile里有什么？</h1><p>Makefile里主要包含了五个东西：显式规则、隐晦规则、变量定义、文件指示和注释。</p>
-<p>显式规则。显式规则说明了，如何生成一个或多个目标文件。这是由Makefile的书写者明显指出，要生成的文件，文件的依赖文件，生成的命令。<br>隐晦规则。由于我们的make有自动推导的功能，所以隐晦的规则可以让我们比较简略地书写Makefile，这是由make所支持的。<br>变量的定义。在Makefile中我们要定义一系列的变量，变量一般都是字符串，这个有点像你C语言中的宏，当Makefile被执行时，其中的变量都会被扩展到相应的引用位置上。<br>文件指示。其包括了三个部分，一个是在一个Makefile中引用另一个Makefile，就像C语言中的include一样；另一个是指根据某些情况指定Makefile中的有效部分，就像C语言中的预编译#if一样；还有就是定义一个多行的命令。有关这一部分的内容，我会在后续的部分中讲述。<br>注释。Makefile中只有行注释，和UNIX的Shell脚本一样，其注释是用“#”字符，这个就像C/C++中的“//”一样。如果你要在你的Makefile中使用“#”字符，可以用反斜杠进行转义，如：“#”。<br>最后，还值得一提的是，在Makefile中的命令，必须要以[Tab]键开始。</p>
-<h1 id="9、Makefile的文件名"><a href="#9、Makefile的文件名" class="headerlink" title="9、Makefile的文件名"></a>9、Makefile的文件名</h1><p>默认的情况下，make命令会在当前目录下按顺序找寻文件名为“GNUmakefile”、“makefile”、“Makefile”的文件，找到了解释这个文件。在这三个文件名中，最好使用“Makefile”这个文件名，因为，这个文件名第一个字符为大写，这样有一种显目的感觉。最好不要用 “GNUmakefile”，这个文件是GNU的make识别的。有另外一些make只对全小写的“makefile”文件名敏感，但是基本上来说，大多数的make都支持“makefile”和“Makefile”这两种默认文件名。</p>
-<p>当然，你可以使用别的文件名来书写Makefile，比如：“Make.Linux”，“Make.Solaris”，“Make.AIX”等，如果要指定特定的Makefile，你可以使用make的“-f”和“–file”参数，如：make -f Make.Linux或make –file Make.AIX。</p>
-<h1 id="10、引用其它的Makefile"><a href="#10、引用其它的Makefile" class="headerlink" title="10、引用其它的Makefile"></a>10、引用其它的Makefile</h1><p>在Makefile使用include关键字可以把别的Makefile包含进来，这很像C语言的#include，被包含的文件会原模原样的放在当前文件的包含位置。include的语法是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include &lt;filename&gt;;</span><br></pre></td></tr></table></figure>
-
-<p>filename可以是当前操作系统Shell的文件模式（可以包含路径和通配符）</p>
-<p>在include前面可以有一些空字符，但是绝不能是[Tab]键开始。include和<filename>;可以用一个或多个空格隔开。举个例子，你有这样几个Makefile：a.mk、b.mk、c.mk，还有一个文件叫foo.make，以及一个变量$(bar)，其包含了 e.mk和f.mk，那么，下面的语句：</filename></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include foo.make *.mk $(bar)</span><br></pre></td></tr></table></figure>
-
-<p>等价于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include foo.make a.mk b.mk c.mk e.mk f.mk</span><br></pre></td></tr></table></figure>
-
-<p>make命令开始时，会找寻include所指出的其它Makefile，并把其内容安置在当前的位置。就好像C/C++的#include指令一样。如果文件都没有指定绝对路径或是相对路径的话，make会在当前目录下首先寻找，如果当前目录下没有找到，那么，make还会在下面的几个目录下找：</p>
-<p>如果make执行时，有“-I”或“–include-dir”参数，那么make就会在这个参数所指定的目录下去寻找。<br>如果目录<prefix>;/include（一般是：/usr/local/bin或/usr/include）存在的话，make也会去找。<br>如果有文件没有找到的话，make会生成一条警告信息，但不会马上出现致命错误。它会继续载入其它的文件，一旦完成makefile的读取， make会再重试这些没有找到，或是不能读取的文件，如果还是不行，make才会出现一条致命信息。如果你想让make不理那些无法读取的文件，而继续执行，你可以在include前加一个减号“-”。如：</prefix></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-include &lt;filename&gt;;</span><br></pre></td></tr></table></figure>
-
-<p>其表示，无论include过程中出现什么错误，都不要报错继续执行。和其它版本make兼容的相关命令是sinclude，其作用和这一个是一样的。</p>
-<h1 id="11、环境变量-MAKEFILES"><a href="#11、环境变量-MAKEFILES" class="headerlink" title="11、环境变量 MAKEFILES"></a>11、环境变量 MAKEFILES</h1><p>如果你的当前环境中定义了环境变量MAKEFILES，那么，make会把这个变量中的值做一个类似于include的动作。这个变量中的值是其它的Makefile，用空格分隔。只是，它和include不同的是，从这个环境变量中引入的Makefile的“目标”不会起作用，如果环境变量中定义的文件发现错误，make也会不理。</p>
-<p>但是在这里我还是建议不要使用这个环境变量，因为只要这个变量一被定义，那么当你使用make时，所有的Makefile都会受到它的影响，这绝不是你想看到的。在这里提这个事，只是为了告诉大家，也许有时候你的Makefile出现了怪事，那么你可以看看当前环境中有没有定义这个变量。</p>
-<h1 id="12、make的工作方式"><a href="#12、make的工作方式" class="headerlink" title="12、make的工作方式"></a>12、make的工作方式</h1><p>GNU的make工作时的执行步骤如下：（想来其它的make也是类似）</p>
-<ol>
-<li>读入所有的Makefile。</li>
-<li>读入被include的其它Makefile。</li>
-<li>初始化文件中的变量。</li>
-<li>推导隐晦规则，并分析所有规则。</li>
-<li>为所有的目标文件创建依赖关系链。</li>
-<li>根据依赖关系，决定哪些目标要重新生成。</li>
-<li>执行生成命令。</li>
-</ol>
-<p>1-5步为第一个阶段，6-7为第二个阶段。第一个阶段中，如果定义的变量被使用了，那么，make会把其展开在使用的位置。但make并不会完全马上展开，make使用的是拖延战术，如果变量出现在依赖关系的规则中，那么仅当这条依赖被决定要使用了，变量才会在其内部展开。</p>
-<p>当然，这个工作方式你不一定要清楚，但是知道这个方式你也会对make更为熟悉。有了这个基础，后续部分也就容易看懂了。</p>
-
+        <h1 id="1、makefile-简介"><a href="#1、makefile-简介" class="headerlink" title="1、makefile 简介"></a>1、makefile 简介</h1><p>make命令执行时，需要一个 makefile 文件，以告诉make命令如何去编译和链接程序。</p>
+        
+          <a class="article-more-a" href="/2019/11/02/Makefile/#more">more >></a>
+        
       
 
       
@@ -345,59 +251,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h1 id="1、C-简介"><a href="#1、C-简介" class="headerlink" title="1、C++简介"></a>1、C++简介</h1><p>C++ 是一种静态类型的、编译式的、通用的、大小写敏感的、不规则的编程语言，支持过程化编程、面向对象编程和泛型编程。</p>
-<p>C++ 被认为是一种<strong>中级</strong>语言，它综合了高级语言和低级语言的特点。</p>
-<p>C++ 是由 Bjarne Stroustrup 于 1979 年在新泽西州美利山贝尔实验室开始设计开发的。C++ 进一步扩充和完善了 C 语言，最初命名为带类的C，后来在 1983 年更名为 C++。</p>
-<p>C++ 是 C 的一个超集，事实上，任何合法的 C 程序都是合法的 C++ 程序。</p>
-<p>C++ 可运行于多种平台上，如 Windows、MAC 操作系统以及 UNIX 的各种版本。</p>
-<h2 id="1-1、面向对象程序设计"><a href="#1-1、面向对象程序设计" class="headerlink" title="1.1、面向对象程序设计"></a>1.1、面向对象程序设计</h2><p>C++ 完全支持面向对象的程序设计，包括面向对象开发的四大特性：</p>
-<ul>
-<li>封装</li>
-<li>抽象</li>
-<li>继承</li>
-<li>多态</li>
-</ul>
-<h2 id="1-2、标准库"><a href="#1-2、标准库" class="headerlink" title="1.2、标准库"></a>1.2、标准库</h2><p>标准的 C++ 由三个重要部分组成：</p>
-<ul>
-<li>核心语言，提供了所有构件块，包括变量、数据类型和常量，等等。</li>
-<li>C++ 标准库，提供了大量的函数，用于操作文件、字符串等。</li>
-<li>标准模板库（STL），提供了大量的方法，用于操作数据结构等。</li>
-</ul>
-<h2 id="1-3、ANSI-标准"><a href="#1-3、ANSI-标准" class="headerlink" title="1.3、ANSI 标准"></a>1.3、ANSI 标准</h2><p>ANSI 标准是为了确保 C++ 的便携性 —— 您所编写的代码在 Mac、UNIX、Windows、Alpha 计算机上都能通过编译。</p>
-<p>由于 ANSI 标准已稳定使用了很长的时间，所有主要的 C++ 编译器的制造商都支持 ANSI 标准。</p>
-<h2 id="1-4、学习-C"><a href="#1-4、学习-C" class="headerlink" title="1.4、学习 C++"></a>1.4、学习 C++</h2><p>学习 C++，关键是要理解概念，而不应过于深究语言的技术细节。</p>
-<p>学习程序设计语言的目的是为了成为一个更好的程序员，也就是说，是为了能更有效率地设计和实现新系统，以及维护旧系统。</p>
-<p>C++ 支持多种编程风格。您可以使用 Fortran、C、Smalltalk 等任意一种语言的编程风格来编写代码。每种风格都能有效地保证运行时间效率和空间效率。</p>
-<h2 id="1-5、C-的使用"><a href="#1-5、C-的使用" class="headerlink" title="1.5、C++ 的使用"></a>1.5、C++ 的使用</h2><p>基本上每个应用程序领域的程序员都有使用 C++。</p>
-<p>C++ 通常用于编写设备驱动程序和其他要求实时性的直接操作硬件的软件。</p>
-<p>C++ 广泛用于教学和研究。</p>
-<p>任何一个使用苹果电脑或 Windows PC 机的用户都在间接地使用 C++，因为这些系统的主要用户接口是使用 C++ 编写的。</p>
-<h1 id="2、C-环境设置"><a href="#2、C-环境设置" class="headerlink" title="2、C++ 环境设置"></a>2、C++ 环境设置</h1><h2 id="2-1、本地环境设置"><a href="#2-1、本地环境设置" class="headerlink" title="2.1、本地环境设置"></a>2.1、本地环境设置</h2><p>如果您想要设置 C++ 语言环境，您需要确保电脑上有以下两款可用的软件，文本编辑器和 C++ 编译器。</p>
-<h2 id="2-2、文本编辑器"><a href="#2-2、文本编辑器" class="headerlink" title="2.2、文本编辑器"></a>2.2、文本编辑器</h2><p>这将用于输入您的程序。文本编辑器包括 Windows Notepad、OS Edit command、Brief、Epsilon、EMACS 和 vim/vi。</p>
-<p>文本编辑器的名称和版本在不同的操作系统上可能会有所不同。例如，Notepad 通常用于 Windows 操作系统上，vim/vi 可用于 Windows 和 Linux/UNIX 操作系统上。</p>
-<p>通过编辑器创建的文件通常称为源文件，源文件包含程序源代码。C++ 程序的源文件通常使用扩展名 .cpp、.cp 或 .c。</p>
-<p>在开始编程之前，请确保您有一个文本编辑器，且有足够的经验来编写一个计算机程序，然后把它保存在一个文件中，编译并执行它。</p>
-<h2 id="2-3、C-编译器"><a href="#2-3、C-编译器" class="headerlink" title="2.3、C++ 编译器"></a>2.3、C++ 编译器</h2><p>写在源文件中的源代码是人类可读的源。它需要”编译”，转为机器语言，这样 CPU 可以按给定指令执行程序。</p>
-<p>C++ 编译器用于把源代码编译成最终的可执行程序。</p>
-<p>大多数的 C++ 编译器并不在乎源文件的扩展名，但是如果您未指定扩展名，则默认使用 .cpp。</p>
-<p>最常用的免费可用的编译器是 GNU 的 C/C++ 编译器，如果您使用的是 HP 或 Solaris，则可以使用各自操作系统上的编译器。</p>
-<p>以下部分将指导您如何在不同的操作系统上安装 GNU 的 C/C++ 编译器。这里同时提到 C/C++，主要是因为 GNU 的 gcc 编译器适合于 C 和 C++ 编程语言。</p>
-<h2 id="2-4、安装-GNU-的-C-C-编译器"><a href="#2-4、安装-GNU-的-C-C-编译器" class="headerlink" title="2.4、安装 GNU 的 C/C++ 编译器"></a>2.4、安装 GNU 的 C/C++ 编译器</h2><h3 id="2-4-1、UNIX-Linux-上的安装"><a href="#2-4-1、UNIX-Linux-上的安装" class="headerlink" title="2.4.1、UNIX/Linux 上的安装"></a>2.4.1、UNIX/Linux 上的安装</h3><p>如果您使用的是 <strong>Linux 或 UNIX</strong>，请在命令行使用下面的命令来检查您的系统上是否安装了 GCC：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ g++ -v</span><br></pre></td></tr></table></figure>
-
-<p>如果您的计算机上已经安装了 GNU 编译器，则会显示如下消息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Using built-in specs.</span><br><span class="line">Target: i386-redhat-linux</span><br><span class="line">Configured with: ../configure --prefix=/usr .......</span><br><span class="line">Thread model: posix</span><br><span class="line">gcc version 4.1.2 20080704 (Red Hat 4.1.2-46)</span><br></pre></td></tr></table></figure>
-
-<p>如果未安装 GCC，那么请按照 <a href="http://gcc.gnu.org/install/" target="_blank" rel="noopener">http://gcc.gnu.org/install/</a> 上的详细说明安装 GCC。</p>
-<h3 id="2-4-2、Mac-OS-X-上的安装"><a href="#2-4-2、Mac-OS-X-上的安装" class="headerlink" title="2.4.2、Mac OS X 上的安装"></a>2.4.2、Mac OS X 上的安装</h3><p>如果您使用的是 Mac OS X，最快捷的获取 GCC 的方法是从苹果的网站上下载 Xcode 开发环境，并按照安装说明进行安装。一旦安装上 Xcode，您就能使用 GNU 编译器。</p>
-<p>Xcode 目前可从 <a href="http://developer.apple.com/technologies/tools/" target="_blank" rel="noopener">developer.apple.com/technologies/tools/</a> 上下载。</p>
-<h3 id="2-4-3、Windows-上的安装"><a href="#2-4-3、Windows-上的安装" class="headerlink" title="2.4.3、Windows 上的安装"></a>2.4.3、Windows 上的安装</h3><p>为了在 Windows 上安装 GCC，您需要安装 MinGW。为了安装 MinGW，请访问 MinGW 的主页 <a href="http://www.mingw.org/" target="_blank" rel="noopener">www.mingw.org</a>，进入 MinGW 下载页面，下载最新版本的 MinGW 安装程序，命名格式为 MinGW-<version>.exe。</version></p>
-<p>当安装 MinGW 时，您至少要安装 gcc-core、gcc-g++、binutils 和 MinGW runtime，但是一般情况下都会安装更多其他的项。</p>
-<p>添加您安装的 MinGW 的 bin 子目录到您的 <strong>PATH</strong> 环境变量中，这样您就可以在命令行中通过简单的名称来指定这些工具。</p>
-<p>当完成安装时，您可以从 Windows 命令行上运行 gcc、g++、ar、ranlib、dlltool 和其他一些 GNU 工具。</p>
-
+        <h1 id="1、C-简介"><a href="#1、C-简介" class="headerlink" title="1、C++简介"></a>1、C++简介</h1><p>C++ 是一种静态类型的、编译式的、通用的、大小写敏感的、不规则的编程语言，支持过程化编程、面向对象编程和泛型编程。</p>
+        
+          <a class="article-more-a" href="/2019/08/26/C++/#more">more >></a>
+        
       
 
       
@@ -811,92 +668,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<h1 id="1、Java-简介"><a href="#1、Java-简介" class="headerlink" title="1、Java 简介"></a>1、Java 简介</h1><p>Java是由Sun Microsystems公司于1995年5月推出的Java面向对象程序设计语言和Java平台的总称。由James Gosling和同事们共同研发，并在1995年正式推出。</p>
-<p>Java分为三个体系：</p>
-<ul>
-<li>JavaSE(J2SE)(Java2 Platform Standard Edition，java平台标准版)</li>
-<li>JavaEE(J2EE)(Java 2 Platform,Enterprise Edition，java平台企业版)</li>
-<li>JavaME(J2ME)(Java 2 Platform Micro Edition，java平台微型版)。</li>
-</ul>
-<p>2005年6月，JavaOne大会召开，SUN公司公开Java SE 6。此时，Java的各种版本已经更名以取消其中的数字”2”：J2EE更名为Java EE, J2SE更名为Java SE，J2ME更名为Java ME。</p>
-<h2 id="1-1、主要特性"><a href="#1-1、主要特性" class="headerlink" title="1.1、主要特性"></a>1.1、主要特性</h2><ul>
-<li><p>Java语言是简单的：</p>
-<p>Java语言的语法与C语言和C++语言很接近，使得大多数程序员很容易学习和使用。另一方面，Java丢弃了C++中很少使用的、很难理解的、令人迷惑的那些特性，如操作符重载、多继承、自动的强制类型转换。特别地，Java语言不使用指针，而是引用。并提供了自动的废料收集，使得程序员不必为内存管理而担忧。</p>
-</li>
-<li><p>Java语言是面向对象的：</p>
-<p>Java语言提供类、接口和继承等面向对象的特性，为了简单起见，只支持类之间的单继承，但支持接口之间的多继承，并支持类与接口之间的实现机制（关键字为implements）。Java语言全面支持动态绑定，而C++语言只对虚函数使用动态绑定。总之，Java语言是一个纯的面向对象程序设计语言。</p>
-</li>
-<li><p>Java语言是分布式的：</p>
-<p>Java语言支持Internet应用的开发，在基本的Java应用编程接口中有一个网络应用编程接口（java net），它提供了用于网络应用编程的类库，包括URL、URLConnection、Socket、ServerSocket等。Java的RMI（远程方法激活）机制也是开发分布式应用的重要手段。</p>
-</li>
-<li><p>Java语言是健壮的：</p>
-<p>Java的强类型机制、异常处理、垃圾的自动收集等是Java程序健壮性的重要保证。对指针的丢弃是Java的明智选择。Java的安全检查机制使得Java更具健壮性。</p>
-</li>
-<li><p>Java语言是安全的：</p>
-<p>Java通常被用在网络环境中，为此，Java提供了一个安全机制以防恶意代码的攻击。除了Java语言具有的许多安全特性以外，Java对通过网络下载的类具有一个安全防范机制（类ClassLoader），如分配不同的名字空间以防替代本地的同名类、字节代码检查，并提供安全管理机制（类SecurityManager）让Java应用设置安全哨兵。</p>
-</li>
-<li><p>Java语言是体系结构中立的：</p>
-<p>Java程序（后缀为java的文件）在Java平台上被编译为体系结构中立的字节码格式（后缀为class的文件），然后可以在实现这个Java平台的任何系统中运行。这种途径适合于异构的网络环境和软件的分发。</p>
-</li>
-<li><p>Java语言是可移植的：</p>
-<p>这种可移植性来源于体系结构中立性，另外，Java还严格规定了各个基本数据类型的长度。Java系统本身也具有很强的可移植性，Java编译器是用Java实现的，Java的运行环境是用ANSI C实现的。</p>
-</li>
-<li><p>Java语言是解释型的：</p>
-<p>如前所述，Java程序在Java平台上被编译为字节码格式，然后可以在实现这个Java平台的任何系统中运行。在运行时，Java平台中的Java解释器对这些字节码进行解释执行，执行过程中需要的类在联接阶段被载入到运行环境中。</p>
-</li>
-<li><p>Java是高性能的：</p>
-<p>与那些解释型的高级脚本语言相比，Java的确是高性能的。事实上，Java的运行速度随着JIT(Just-In-Time）编译器技术的发展越来越接近于C++。</p>
-</li>
-<li><p>Java语言是多线程的：</p>
-<p>在Java语言中，线程是一种特殊的对象，它必须由Thread类或其子（孙）类来创建。通常有两种方法来创建线程：其一，使用型构为Thread(Runnable)的构造子类将一个实现了Runnable接口的对象包装成一个线程，其二，从Thread类派生出子类并重写run方法，使用该子类创建的对象即为线程。值得注意的是Thread类已经实现了Runnable接口，因此，任何一个线程均有它的run方法，而run方法中包含了线程所要运行的代码。线程的活动由一组方法来控制。Java语言支持多个线程的同时执行，并提供多线程之间的同步机制（关键字为synchronized）。</p>
-</li>
-<li><p>Java语言是动态的：</p>
-<p>Java语言的设计目标之一是适应于动态变化的环境。Java程序需要的类能够动态地被载入到运行环境，也可以通过网络来载入所需要的类。这也有利于软件的升级。另外，Java中的类有一个运行时刻的表示，能进行运行时刻的类型检查。</p>
-</li>
-</ul>
-<h2 id="1-2、发展历史"><a href="#1-2、发展历史" class="headerlink" title="1.2、发展历史"></a>1.2、发展历史</h2><ul>
-<li>1995年5月23日，Java语言诞生</li>
-<li>1996年1月，第一个JDK-JDK1.0诞生</li>
-<li>1996年4月，10个最主要的操作系统供应商申明将在其产品中嵌入JAVA技术</li>
-<li>1996年9月，约8.3万个网页应用了JAVA技术来制作</li>
-<li>1997年2月18日，JDK1.1发布</li>
-<li>1997年4月2日，JavaOne会议召开，参与者逾一万人，创当时全球同类会议规模之纪录</li>
-<li>1997年9月，JavaDeveloperConnection社区成员超过十万</li>
-<li>1998年2月，JDK1.1被下载超过2,000,000次</li>
-<li>1998年12月8日，JAVA2企业平台J2EE发布</li>
-<li>1999年6月，SUN公司发布Java的三个版本：标准版（JavaSE,以前是J2SE）、企业版（JavaEE以前是J2EE）和微型版（JavaME，以前是J2ME）</li>
-<li>2000年5月8日，JDK1.3发布</li>
-<li>2000年5月29日，JDK1.4发布</li>
-<li>2001年6月5日，NOKIA宣布，到2003年将出售1亿部支持Java的手机</li>
-<li>2001年9月24日，J2EE1.3发布</li>
-<li>2002年2月26日，J2SE1.4发布，自此Java的计算能力有了大幅提升</li>
-<li>2004年9月30日18:00PM，J2SE1.5发布，成为Java语言发展史上的又一里程碑。为了表示该版本的重要性，J2SE1.5更名为Java SE 5.0</li>
-<li>2005年6月，JavaOne大会召开，SUN公司公开Java SE 6。此时，Java的各种版本已经更名，以取消其中的数字”2”：J2EE更名为Java EE，J2SE更名为Java SE，J2ME更名为Java ME</li>
-<li>2006年12月，SUN公司发布JRE6.0</li>
-<li>2009年04月20日，甲骨文74亿美元收购Sun。取得java的版权。</li>
-<li>2010年11月，由于甲骨文对于Java社区的不友善，因此Apache扬言将退出JCP[4]。</li>
-<li>2011年7月28日，甲骨文发布 Java7.0 的正式版。</li>
-<li>2014年3月18日，Oracle公司发表 Java SE 8。</li>
-<li>2017年9月21日，Oracle公司发表 Java SE 9</li>
-<li>2018年3月21日，Oracle公司发表 Java SE 10</li>
-<li>2018年9月25日，Java SE 11 发布</li>
-<li>2019年3月20日，Java SE 12 发布</li>
-</ul>
-<h2 id="1-3、Java开发工具"><a href="#1-3、Java开发工具" class="headerlink" title="1.3、Java开发工具"></a>1.3、Java开发工具</h2><p>Java语言尽量保证系统内存在1G以上，其他工具如下所示：</p>
-<ul>
-<li>Linux 系统、Mac OS 系统、Windows 95/98/2000/XP，WIN 7/8系统。</li>
-<li><a href="http://www.oracle.com/technetwork/cn/java/javase/downloads/index.html" target="_blank" rel="noopener">Java JDK 7、8……</a></li>
-<li><a href="https://notepad-plus-plus.org/" target="_blank" rel="noopener">Notepad</a> 编辑器或者其他编辑器。</li>
-<li>IDE：<a href="http://www.eclipse.org/downloads/" target="_blank" rel="noopener">Eclipse</a></li>
-</ul>
-<p>安装好以上的工具后，我们就可以输出Java的第一个程序”Hello World！”</p>
-<p>public class HelloWorld {     </p>
-<p>public static void main(String []args) {         </p>
-<p>System.out.println(“Hello World”);     } }</p>
-<p>在下一章节我们将介绍如何配置java开发环境。</p>
-
+        <h1 id="1、Java-简介"><a href="#1、Java-简介" class="headerlink" title="1、Java 简介"></a>1、Java 简介</h1><p>Java是由Sun Microsystems公司于1995年5月推出的Java面向对象程序设计语言和Java平台的总称。由James Gosling和同事们共同研发，并在1995年正式推出。</p>
+        
+          <a class="article-more-a" href="/2019/07/23/Java/#more">more >></a>
+        
       
 
       
@@ -1037,7 +812,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用Markdown + GitHub + Hexo的第一天，记录一下Markdown的语法。</p>
+        <h1 id="Markdown-简介"><a href="#Markdown-简介" class="headerlink" title="Markdown 简介"></a>Markdown 简介</h1><p>Markdown是一种轻量级标记语言，创始人为约翰·格鲁伯（英语：John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML（或者HTML）文档”。</p>
         
           <a class="article-more-a" href="/2019/07/07/Markdown/#more">more >></a>
         
@@ -1186,11 +961,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1198,19 +973,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">RISCV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
               </li>
              
               <li class="article-tag-list-item">
