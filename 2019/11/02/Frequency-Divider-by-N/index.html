@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/11/02/Frequency-Divider-by-N/divide_by_2.png">
 <meta property="og:image" content="http://yoursite.com/2019/11/02/Frequency-Divider-by-N/divide_by_3_50_dutycycle.png">
 <meta property="og:image" content="http://yoursite.com/2019/11/02/Frequency-Divider-by-N/divide_by_3_33_dutycycle.gif">
-<meta property="og:updated_time" content="2019-11-02T23:39:23.415Z">
+<meta property="og:updated_time" content="2019-11-02T23:41:18.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Frequency Divider by N">
 <meta name="twitter:description" content="A frequency divider, also called a clock divider or scaler or prescaler, is a circuit that takes an input signal of a frequency  f_{in}, and generates an output signal of a frequency:">
@@ -192,7 +192,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">module frequency_divider_by_odd #(parameter WIDTH = 3,</span><br><span class="line">                                  parameter N = 5)</span><br><span class="line">                                 (input clk,</span><br><span class="line">                                  input rst,</span><br><span class="line">                                  output out_clk);</span><br><span class="line"></span><br><span class="line">reg [WIDTH-1:0] pos_count, neg_count;</span><br><span class="line"></span><br><span class="line">assign clk_out = ((pos_count &gt; (N&gt;&gt;1)) | (neg_count &gt; (N&gt;&gt;1)));</span><br><span class="line"></span><br><span class="line">always @(posedge clk) begin</span><br><span class="line">    if (reset) pos_count &lt;=0;</span><br><span class="line">    else if (pos_count == N-1) pos_count &lt;= 0;</span><br><span class="line">    else pos_count &lt;= pos_count +1;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">always @(negedge clk) begin</span><br><span class="line">    if (reset) neg_count &lt;=0;</span><br><span class="line">    else if (neg_count == N-1) neg_count &lt;= 0;</span><br><span class="line">    else neg_count&lt;= neg_count +1;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
 <p>We take an example of divide by 3.</p>
 <p><img src="/2019/11/02/Frequency-Divider-by-N/divide_by_3_50_dutycycle.png" alt="Divide by 3(50% duty cycle)"></p>
-<h1 id="2、Divide-by-N-Even"><a href="#2、Divide-by-N-Even" class="headerlink" title="2、Divide by N(Even)"></a>2、Divide by N(Even)</h1><p>If N is an even number, it will be simpler.</p>
+<h1 id="3、Divide-by-N-Even"><a href="#3、Divide-by-N-Even" class="headerlink" title="3、Divide by N(Even)"></a>3、Divide by N(Even)</h1><p>If N is an even number, it will be simpler.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">module frequency_divider_by_even(input clk,</span><br><span class="line">                                 input rst,</span><br><span class="line">                                 output out_clk);</span><br><span class="line"></span><br><span class="line">parameter WIDTH = 3;</span><br><span class="line">parameter N = 3;</span><br><span class="line"></span><br><span class="line">reg [WIDTH-1:0] counter;</span><br><span class="line">reg clk_temp;</span><br><span class="line"></span><br><span class="line">assign out_clk = clk_temp;</span><br><span class="line"></span><br><span class="line">always @(posedge clk)</span><br><span class="line">begin</span><br><span class="line">    if (rst) begin</span><br><span class="line">        counter &lt;= 0;</span><br><span class="line">        clk_temp &lt;= 1&apos;b0;</span><br><span class="line">    end</span><br><span class="line"> </span><br><span class="line">    else if (counter == (N/2 - 1)) begin</span><br><span class="line">        counter &lt;= counter + 1;</span><br><span class="line">        clk_temp &lt;= ~clk_temp;</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    else counter &lt;= counter + 1;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
 <p>It can also be used in odd number but the duty cycle cannot be satisfied anymore.</p>
 <p>We still take an example of divide by 3.</p>
@@ -495,19 +495,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Verilog</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Verilog</a>
               </li>
              
               <li class="article-tag-list-item">
