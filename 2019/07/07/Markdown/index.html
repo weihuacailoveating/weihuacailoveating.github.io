@@ -17,7 +17,7 @@
 <meta property="og:description" content="Markdown是一种轻量级标记语言，创始人为约翰·格鲁伯（英语：John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML（或者HTML）文档”。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/07/Markdown/bilibili.jpg">
-<meta property="og:updated_time" content="2019-11-02T22:30:29.856Z">
+<meta property="og:updated_time" content="2019-11-02T23:08:53.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown">
 <meta name="twitter:description" content="Markdown是一种轻量级标记语言，创始人为约翰·格鲁伯（英语：John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML（或者HTML）文档”。">
@@ -236,13 +236,58 @@
 <p>其中只放置左边冒号表示文字居左，只放置右边冒号表示文字居右，如果两边都放置冒号表示文字居中。</p>
 <h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>手动加入分割线很简单，***或者—即可。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>这个东西很重要，这里我只介绍一个通法，输入三个`回车进入代码模式，复制粘贴代码，搞定。</p>
-<h3 id="特殊符号处理"><a href="#特殊符号处理" class="headerlink" title="特殊符号处理"></a>特殊符号处理</h3><p>Markdown使用反斜杠\插入语法中用到的特殊符号。在Markdown中，主要有以下几种特殊符号需要处理：</p>
+<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><h3 id="插入方式"><a href="#插入方式" class="headerlink" title="插入方式"></a>插入方式</h3><p>这里分两种，一种是行间插入，另一种是另取一行</p>
+<h4 id="1-行间插入"><a href="#1-行间插入" class="headerlink" title="1. 行间插入"></a>1. 行间插入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\(a + b\)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-另取一行"><a href="#2-另取一行" class="headerlink" title="2. 另取一行"></a>2. 另取一行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$a + b$$</span><br></pre></td></tr></table></figure>
+
+<p>复制代码这里是另取一行，特点就是通过$$包含公式。</p>
+<h3 id="基本类型的插入"><a href="#基本类型的插入" class="headerlink" title="基本类型的插入"></a>基本类型的插入</h3><h4 id="1-上、下标"><a href="#1-上、下标" class="headerlink" title="1. 上、下标"></a>1. 上、下标</h4><p>$$x_{balabala}^{bala}$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$x_&#123;balabala&#125;^&#123;bala&#125;$$</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-分式"><a href="#2-分式" class="headerlink" title="2. 分式"></a>2. 分式</h4><p>$$\frac{x+y}{2}$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\frac&#123;x+y&#125;&#123;2&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-根式"><a href="#3-根式" class="headerlink" title="3. 根式"></a>3. 根式</h4><p>$$\sqrt{1+\sqrt[^p!]{1+a^2}}$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\sqrt&#123;1+\sqrt[^p\!]&#123;1+a^2&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-求和、积分"><a href="#4-求和、积分" class="headerlink" title="4. 求和、积分"></a>4. 求和、积分</h4><p>$$\sum_{k=1}^{n}\frac{1}{k}$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\sum_&#123;k=1&#125;^&#123;n&#125;\frac&#123;1&#125;&#123;k&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$\int_a^b f(x)dx$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\int_a^b f(x)dx</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-界定符"><a href="#5-界定符" class="headerlink" title="5. 界定符"></a>5. 界定符</h4><p>$$\left(\sum_{k=\frac{1}{2}}^{N^2}\frac{1}{k}\right)$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\left(\sum_&#123;k=\frac&#123;1&#125;&#123;2&#125;&#125;^&#123;N^2&#125;\frac&#123;1&#125;&#123;k&#125;\right)</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-矩阵"><a href="#6-矩阵" class="headerlink" title="6. 矩阵"></a>6. 矩阵</h4><p>$$\begin{matrix}1 &amp; 2\\3 &amp;4\end{matrix}$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;matrix&#125;1 &amp; 2\\\\3 &amp;4\end&#123;matrix&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$\begin{pmatrix}1 &amp; 2\\3 &amp;4\end{pmatrix}$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;pmatrix&#125;1 &amp; 2\\\\3 &amp;4\end&#123;pmatrix&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$\begin{bmatrix}1 &amp; 2\\3 &amp;4\end{bmatrix}$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;bmatrix&#125;1 &amp; 2\\\\3 &amp;4\end&#123;bmatrix&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$\begin{Bmatrix}1 &amp; 2\\3 &amp;4\end{Bmatrix}$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;Bmatrix&#125;1 &amp; 2\\\\3 &amp;4\end&#123;Bmatrix&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$\begin{vmatrix}1 &amp; 2\\3 &amp;4\end{vmatrix}$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;vmatrix&#125;1 &amp; 2\\\\3 &amp;4\end&#123;vmatrix&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$\left|\begin{matrix}1 &amp; 2\\3 &amp;4\end{matrix}\right|$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\left|\begin&#123;matrix&#125;1 &amp; 2\\\\3 &amp;4\end&#123;matrix&#125;\right|</span><br></pre></td></tr></table></figure>
+
+<p>$$\begin{Vmatrix}1 &amp; 2\\3 &amp;4\end{Vmatrix}$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;Vmatrix&#125;1 &amp; 2\\\\3 &amp;4\end&#123;Vmatrix&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="特殊符号处理"><a href="#特殊符号处理" class="headerlink" title="特殊符号处理"></a>特殊符号处理</h2><p>Markdown使用反斜杠\插入语法中用到的特殊符号。在Markdown中，主要有以下几种特殊符号需要处理：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">\   反斜线</span><br><span class="line">`   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   底线</span><br><span class="line">&#123;&#125;  花括号</span><br><span class="line">[]  方括号</span><br><span class="line">()  括弧</span><br><span class="line">#   井字号</span><br><span class="line">+   加号</span><br><span class="line">-   减号</span><br><span class="line">.   英文句点</span><br><span class="line">!   惊叹号</span><br></pre></td></tr></table></figure>
 
 <p>例如，如果你需要插入反斜杠，就连续输入两个反斜杠即可：\\ =&gt; \ 。</p>
 <p>注：在内容中输入以上特殊符号的时候一定要注意转义，否则将导致内容显示不全，甚至排版混乱。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Markdown的语法就先码在这里了，边学习边更新，希望能以这样的方式帮助大家，同时让自己继续成长。</p>
-<p><a href="https://www.jianshu.com/p/335db5716248" target="_blank" rel="noopener">转载来源：https://www.jianshu.com/p/335db5716248</a>，尊重原创，从我做起！</p>
+<p><a href="https://www.jianshu.com/p/335db5716248" target="_blank" rel="noopener">转载来源：https://www.jianshu.com/p/335db5716248</a>，<a href="https://juejin.im/post/5a6721bd518825733201c4a2#heading-7" target="_blank" rel="noopener">https://juejin.im/post/5a6721bd518825733201c4a2#heading-7</a>尊重原创，从我做起！</p>
 
       
 
@@ -524,10 +569,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
@@ -536,11 +577,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">RISCV</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,6 +590,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">RISCV</a>
               </li>
              
               <li class="article-tag-list-item">

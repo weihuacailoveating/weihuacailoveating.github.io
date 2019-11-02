@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Frequency Divider by N | Cai&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A frequency divider, also called a clock divider or scaler or prescaler, is a circuit that takes an input signal of a frequency, {\displaystyle f_{in}}f_{in}, and generates an output signal of a frequ">
+  <meta name="description" content="A frequency divider, also called a clock divider or scaler or prescaler, is a circuit that takes an input signal of a frequency $$f_{in}$$, and generates an output signal of a frequency:">
 <meta name="keywords" content="Verilog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Frequency Divider by N">
 <meta property="og:url" content="http://yoursite.com/2019/11/02/Frequency-Divider-by-N/index.html">
 <meta property="og:site_name" content="Cai&#39;s Blog">
-<meta property="og:description" content="A frequency divider, also called a clock divider or scaler or prescaler, is a circuit that takes an input signal of a frequency, {\displaystyle f_{in}}f_{in}, and generates an output signal of a frequ">
+<meta property="og:description" content="A frequency divider, also called a clock divider or scaler or prescaler, is a circuit that takes an input signal of a frequency $$f_{in}$$, and generates an output signal of a frequency:">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/11/02/Frequency-Divider-by-N/divider_by_2.png">
-<meta property="og:updated_time" content="2019-11-02T22:31:50.186Z">
+<meta property="og:image" content="http://yoursite.com/2019/11/02/Frequency-Divider-by-N/cai/hexo/source/_posts/Frequency-Divider-by-N/divide_by_2.png">
+<meta property="og:updated_time" content="2019-11-02T22:42:31.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Frequency Divider by N">
-<meta name="twitter:description" content="A frequency divider, also called a clock divider or scaler or prescaler, is a circuit that takes an input signal of a frequency, {\displaystyle f_{in}}f_{in}, and generates an output signal of a frequ">
-<meta name="twitter:image" content="http://yoursite.com/2019/11/02/Frequency-Divider-by-N/divider_by_2.png">
+<meta name="twitter:description" content="A frequency divider, also called a clock divider or scaler or prescaler, is a circuit that takes an input signal of a frequency $$f_{in}$$, and generates an output signal of a frequency:">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/02/Frequency-Divider-by-N/cai/hexo/source/_posts/Frequency-Divider-by-N/divide_by_2.png">
   
     <link rel="alternative" href="/atom.xml" title="Cai&#39;s Blog" type="application/atom+xml">
   
@@ -181,16 +181,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>A frequency divider, also called a clock divider or scaler or prescaler, is a circuit that takes an input signal of a frequency, {\displaystyle f_{in}}f_{in}, and generates an output signal of a frequency:</p>
-<p>{\displaystyle f_{out}={\frac {f_{in}}{n}}} f_{out} = \frac{f_{in}}{n}</p>
-<p>where {\displaystyle n}n is an integer. Phase-locked loop frequency synthesizers make use of frequency dividers to generate a frequency that is a multiple of a reference frequency. Frequency dividers can be implemented for both analog and digital applications.</p>
+        <p>A frequency divider, also called a clock divider or scaler or prescaler, is a circuit that takes an input signal of a frequency $$f_{in}$$, and generates an output signal of a frequency:</p>
 <a id="more"></a>
 
+<p>$$f_{out} = \frac{f_{in}}{n} $$</p>
+<p>where $$n$$ is an integer. Phase-locked loop frequency synthesizers make use of frequency dividers to generate a frequency that is a multiple of a reference frequency. Frequency dividers can be implemented for both analog and digital applications.</p>
 <h1 id="1、Divide-by-2"><a href="#1、Divide-by-2" class="headerlink" title="1、Divide by 2"></a>1、Divide by 2</h1><p>Firstly, we talk about simple frequency divider by 2 circuit.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">module frequency_divider_by2(input clk,</span><br><span class="line">                             input rst,</span><br><span class="line">                             output out_clk);</span><br><span class="line">                             </span><br><span class="line">reg out_clk_temp;</span><br><span class="line"></span><br><span class="line">assign out_clk = out_clk_temp;</span><br><span class="line"></span><br><span class="line">always @(posedge clk) begin</span><br><span class="line">    if (rst) out_clk_temp &lt;= 0;</span><br><span class="line">    else out_clk_temp &lt;= ~out_clk;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/11/02/Frequency-Divider-by-N/divider_by_2.png" alt="Divider by 2"></p>
-<h1 id="1、Divide-by-N-Odd"><a href="#1、Divide-by-N-Odd" class="headerlink" title="1、Divide by N(Odd)"></a>1、Divide by N(Odd)</h1>
+<p><img src="/2019/11/02/Frequency-Divider-by-N/cai/hexo/source/_posts/Frequency-Divider-by-N/divide_by_2.png" alt="Divider by 2"></p>
+<h1 id="2、Divide-by-N-Odd"><a href="#2、Divide-by-N-Odd" class="headerlink" title="2、Divide by N(Odd)"></a>2、Divide by N(Odd)</h1>
       
 
       
@@ -467,10 +467,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
@@ -479,11 +475,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">RISCV</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,6 +488,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">RISCV</a>
               </li>
              
               <li class="article-tag-list-item">
