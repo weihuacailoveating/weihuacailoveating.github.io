@@ -1,6 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[DFT]]></title>
+    <url>%2F2019%2F11%2F05%2FDFT%2F</url>
+    <content type="text"><![CDATA[A die defect is an unintended variation in the physical aspects of a die, such as shown earlier. A fault is a defect that can create an error in computation. This can occur when a logic 1 erroneously becomes a logic 0 or vice versa, or when a transition in logic value occurs to early or late. Faults are usually associated with a common form of defect, such as an open. An error is when a signal has the wrong logic value for a certain period of time. Not all errors create wrong values in state variables. Single stuck at 0 and 1 (SSA 0 or 1): Used in practice Multiple stuck at 0 and 1 (MSA): Used in theory Single shorts ◦ AND short ◦ OR short ◦ Resistive short Multiple shorts – Iddq testing Delay ◦ Single and multiple path: robust and non-robust ◦ Single gate: robust and non-robust ◦ Single input transition fault Switch level ◦ Single stuck-open transistor (SSOpF) ◦ Singe stuck-on transistor (SSOnF)]]></content>
+      <tags>
+        <tag>DFT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Power]]></title>
+    <url>%2F2019%2F11%2F05%2FPower%2F</url>
+    <content type="text"><![CDATA[P = 1 / 2 Cload Vdd^2 f B SVS Static Voltage Scaling CG Clock Gating DVFS Dynamic Voltage and Frequency Scaling]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[JK-Flip-Flop]]></title>
+    <url>%2F2019%2F11%2F05%2FJK-Flip-Flop%2F</url>
+    <content type="text"><![CDATA[The Basic JK Flip-flop Both the S and the R inputs of the previous SR bistable have now been replaced by two inputs called the J and K inputs, respectively after its inventor Jack Kilby. Then this equates to: J = S and K = R. The two 2-input AND gates of the gated SR bistable have now been replaced by two 3-input NAND gates with the third input of each gate connected to the outputs at Q and Q. This cross coupling of the SR flip-flop allows the previously invalid condition of S = “1” and R = “1” state to be used to produce a “toggle action” as the two inputs are now interlocked. If the circuit is now “SET” the J input is inhibited by the “0” status of Q through the lower NAND gate. If the circuit is “RESET” the K input is inhibited by the “0” status of Q through the upper NAND gate. As Q and Q are always different we can use them to control the input. When both inputs J and K are equal to logic “1”, the JK flip flop toggles as shown in the following truth table.]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[FinFet]]></title>
+    <url>%2F2019%2F11%2F05%2FFinFet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Logic-Effort]]></title>
+    <url>%2F2019%2F11%2F05%2FLogic-Effort%2F</url>
+    <content type="text"><![CDATA[GBH + P]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[ROM]]></title>
+    <url>%2F2019%2F11%2F05%2FROM%2F</url>
+    <content type="text"><![CDATA[Mask (Fuse) ROM Programmable ROM (PROM) Erasable PROM(EPROM) Electrically Erasable PROM (EEPROM) Flash Memory Ferroelectric RAM (FRAM)]]></content>
+      <tags>
+        <tag>ROM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Layout]]></title>
+    <url>%2F2019%2F11%2F05%2FLayout%2F</url>
+    <content type="text"><![CDATA[Lamda-based or um-based TSMC018 or TSMC20N means Lamda = 0.1 um = 100nm Lmin(Minimum Transistor Channel Length) = 2 * Lamda = 180 nm or 200nm Minimum Size Transistor Min Length = 2 * Lamda Min Width = 3 * Lamda Unit Size Transistor Min Length = 2 * Lamda Min Width = 4 * Lamda NWell 10 Lamda * 10 Lamda Poly Length = 2 Lamda poly to poly = 2 Lamda Contact cut/opening = 2 Lamda * 2 Lamda 4 Lamda * 4 Lamda Metal Minimum Width = 3 Lamda Metal to Metal = 3 Lamda]]></content>
+      <tags>
+        <tag>Layout</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Synthesis]]></title>
+    <url>%2F2019%2F11%2F05%2FSynthesis%2F</url>
+    <content type="text"><![CDATA[The designer should first understand and design the architectural description which is written in Hardware Description Language (HDL) such as Verilog. To do synthesis, the HDL code needs to be synthesizable. The standard cell library (technology library) has simple cells, such as basic logic gates like and, or, and nor, or macro cells, such as adder, muxes, memory, and flip-flops. Non-Synthesizable: Initial, events, real, time, force and release, fork, join, table, UDP, primitives(except gate level primitives), loop(except loop that takes one clock for each loop cycle), ===, !==]]></content>
+      <tags>
+        <tag>Synthesis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[NOC]]></title>
+    <url>%2F2019%2F11%2F05%2FNOC%2F</url>
+    <content type="text"><![CDATA[Topology • Defines the connection pattern between nodes (processors &amp; memories) • A good topology maximizes network bandwidth subject to technological constraints (metal layer, number of pins on a chip’s package) Routing • Determines a single or a collection of paths a packet must follow from a source node to a destination node • A good routing minimizes source-to-destination latency, maximizes the chance of correct packet reception, maximizes the resource utilization (load balancing) Flow control • Dictates which messages get access to specific network resources (channels, buffers) over time based on packet criticality /age, level of traffic congestion and other concerns]]></content>
+      <tags>
+        <tag>NOC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CMOS]]></title>
+    <url>%2F2019%2F11%2F04%2FCMOS%2F</url>
+    <content type="text"><![CDATA[A latch-up is a type of short circuit which can occur in an integrated circuit (IC). More specifically it is the inadvertent creation of a low-impedance path between the power supply rails of a MOSFET circuit, triggering a parasitic structure which disrupts proper functioning of the part, possibly even leading to its destruction due to overcurrent. A power cycle is required to correct this situation. A single event latch-up is a latch-up caused by a single event upset, typically heavy ions or protons from cosmic rays or solar flares.[1][2] The parasitic structure is usually equivalent to a thyristor (or SCR), a PNPN structure which acts as a PNP and an NPN transistor stacked next to each other. During a latch-up when one of the transistors is conducting, the other one begins conducting too. They both keep each other in saturation for as long as the structure is forward-biased and some current flows through it - which usually means until a power-down. The SCR parasitic structure is formed as a part of the totem-pole PMOS and NMOS transistor pair on the output drivers of the gates. The latch-up does not have to happen between the power rails - it can happen at any place where the required parasitic structure exists. A common cause of latch-up is a positive or negative voltage spike on an input or output pin of a digital chip that exceeds the rail voltage by more than a diode drop. Another cause is the supply voltage exceeding the absolute maximum rating, often from a transient) spike in the power supply. It leads to a breakdown of an internal junction. This frequently happens in circuits which use multiple supply voltages that do not come up in the required sequence on power-up, leading to voltages on data lines exceeding the input rating of parts that have not yet reached a nominal supply voltage. Latch-ups can also be caused by an electrostatic discharge event. Intrinsic bipolar junction transistors in the CMOS technology Another common cause of latch-ups is ionizing radiation which makes this a significant issue in electronic products designed for space (or very high-altitude) applications. High-power microwave interference can also trigger latch ups.[3] Both CMOS integrated circuits and TTL integrated circuits are more susceptible to latch-up at higher temperatures.[4] Process Oxidize PhotoResist(PR) expose(UV-Light) Dip it into developing Solution Chemical Etch PhotoResist Stripping Diffusion or Ion Implantation to create n+/drain-source p+/drain-source Region: Accumulation Cut-off Linear Saturation I = 1 / 2 u Cox W / L (Vgs - Vtp - 1/2Vds) * Vds K = u * Cos Channel Length Modulation Saturation: I = 1 / 2 K W / L (Vgs - Vth) ^ 2 (1 + Lamda * Vds) = I * 1 / (1 - delta/L) Rds = 1 / (Lamda * Ids) Body Effect: Body(Substrate) and source has different voltage Inverter: W/L(N) increases =&gt; shift left W/L(P) increases =&gt; shift right]]></content>
+      <tags>
+        <tag>CMOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Cap-Res]]></title>
+    <url>%2F2019%2F11%2F04%2FCap-Res%2F</url>
+    <content type="text"><![CDATA[Capacitance = e * A / t Resistance = P L / (W t) V(t) = Vdd(1 - e^(-t/RC)) if a capacitance voltage increases from 0 to Vdd. td(50% delay) = 0.693RC VR = (CbVb + CsVs)/(Cb + Cs)]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[CPU-performance]]></title>
+    <url>%2F2019%2F11%2F04%2FCPU-performance%2F</url>
+    <content type="text"><![CDATA[CPU ET(Execution Time) = IC(Instruction Count) CPI(Average Clock Cycles Per Instruction) CP(Clock Period) IC is determined by ISA design and Compiler design. CPI is determined by Micro-Architecture design. CP is determined by VLSI design. MIPS(Million Instructions Per Second) = 1/(CPI CP 10^6)]]></content>
+      <tags>
+        <tag>CPU</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Amdahl-Law]]></title>
+    <url>%2F2019%2F11%2F04%2FAmdahl-Law%2F</url>
+    <content type="text"><![CDATA[In computer architecture, Amdahl’s law (or Amdahl’s argument) is a formula which gives the theoretical speedup in latency) of the execution of a task at fixed workload that can be expected of a system whose resources are improved. It is named after computer scientist Gene Amdahl, and was presented at the AFIPS Spring Joint Computer Conference in 1967. Amdahl’s law is often used in parallel computing to predict the theoretical speedup when using multiple processors. For example, if a program needs 20 hours using a single processor core, and a particular part of the program which takes one hour to execute cannot be parallelized, while the remaining 19 hours (p = 0.95) of execution time can be parallelized, then regardless of how many processors are devoted to a parallelized execution of this program, the minimum execution time cannot be less than that critical one hour. Hence, the theoretical speedup is limited to at most 20 times {\displaystyle \left({\dfrac {1}{1-p}}=20\right)}. For this reason, parallel computing with many processors is useful only for highly parallelizable programs. DefinitionAmdahl’s law can be formulated in the following way: where Slatency is the theoretical speedup of the execution of the whole task; s is the speedup of the part of the task that benefits from improved system resources; p is the proportion of execution time that the part benefiting from improved resources originally occupied. Furthermore, shows that the theoretical speedup of the execution of the whole task increases with the improvement of the resources of the system and that regardless of the magnitude of the improvement, the theoretical speedup is always limited by the part of the task that cannot benefit from the improvement. Amdahl’s law applies only to the cases where the problem size is fixed. In practice, as more computing resources become available, they tend to get used on larger problems (larger datasets), and the time spent in the parallelizable part often grows much faster than the inherently serial work. In this case, Gustafson’s law gives a less pessimistic and more realistic assessment of the parallel performance.]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Pipelining]]></title>
+    <url>%2F2019%2F11%2F03%2FPipelining%2F</url>
+    <content type="text"><![CDATA[Conventional Pipelining: t_{clk} > t_{comb}(max) + t_{setup}(min)Wave Pipelining: t_{clk} > t_{comb}(max) - t_{comb}(min) + t_{setup}(min)]]></content>
+      <tags>
+        <tag>Pipelining</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[FPGA]]></title>
+    <url>%2F2019%2F11%2F03%2FFPGA%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>FPGA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Adder]]></title>
+    <url>%2F2019%2F11%2F03%2FAdder%2F</url>
+    <content type="text"><![CDATA[RCA: Ripple Carry Adder 1. Overflow Condition Arithmetic operations have a potential to run into a condition known as overflow. Overflow occurs with respect to the size of the data type that must accommodate the result. Overflow indicates that the result was too large or too small to fit in the original data type. When two signed 2’s complement numbers are added, overflow is detected if: both operands are positive and the result is negative, or both operands are negative and the result is positive. When two unsigned numbers are added, overflow occurrs if there is a carry out of the leftmost bit. 2. Binary Arithmetic Computers don’t know the difference between signed and unsigned binary numbers. This is a good thing, because it makes logic circuits fast. This is also a bad thing, because distinguishing between signed and unsigned is our responsibility. The distinction is very important when detecting an overflow after addition or subtraction. Correct approach to detect the overflow is to consider two separate cases: Overflow when adding unsigned numbers. Overflow when adding signed numbers. 3. Adding Unsigned Numbers Let’s first solve the problem for addition of one-bit quntities: 12340 + 0 = 00 + 1 = 11 + 0 = 11 + 1 = 10 The last line indicates that we have a carry output. That is, one-bit quantity cannot accommodate (1 + 1). Therefore, larger data type is required for (1 + 1) to succeed. When multi-bit unsigned quantities are added, overflow occurrs if there is a carry out from the leftmost (most significant) bit. 4. Overflow Detection Circuit for Unsigned Addition Overflow detection circuit for unsigned binary addition: 5. Signed Numbers Addition, Cont. Notice that overflow occurs only when CARRYin ≠ CARRYout or simply V = Cin XOR Cout where V is the overflow signal. 6. Overflow Detection Circuit for 2’s Complement Addition Overflow detection circuit for 2’s complement addition 7. Misconceptions about Overflow Specific overflow detection requires knowing the operation and the representation. Overflow occurs when you do some operation to two valid representations… …and the result can not be represented in the representation because the value is too large or too smal. Overflow detection is detecting overflow for a specific representation… …Too often people mistake overflow condition for unsigned overflow, when the carry out is 1. Overflow detection for 2’s complement addition is different: One way to detect it is to XOR the carry in and the carry out.]]></content>
+      <tags>
+        <tag>Verilog ALU</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Metastability]]></title>
+    <url>%2F2019%2F11%2F03%2FMetastability%2F</url>
+    <content type="text"><![CDATA[MTBF: Mean Time Between Failures Reset should also be syncronized because metastability may happen if design is reset right before a clock edge.]]></content>
+      <tags>
+        <tag>Metastability</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[STA]]></title>
+    <url>%2F2019%2F11%2F03%2FSTA%2F</url>
+    <content type="text"><![CDATA[Setup time: The D input shall be valid and stable for a certain time before the significant edge of the clock. Hold time: The D input shall be valid and stable for a certain time after the significant edge of the clock. Setup\; time\; Margin = t_{clk} - t_{ffPD}(max) - t_{comb}(max) - t_{setup}(min)Hold\; time\; Margin = t_{ffPD}(min) + t_{comb}(min) - t_{hold}(min)]]></content>
+      <tags>
+        <tag>STA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Verilog]]></title>
+    <url>%2F2019%2F11%2F02%2FVerilog%2F</url>
+    <content type="text"><![CDATA[Delta TEach signal assignment requires one delta cycle delay before the signal assumes its new value. Delay can be specified in two forms: Inter-statement(Inertial Delay): #delay LHS = RHS or #delay LHS &lt;= RHS Intra-statement(Transport Delay): LHS = #delay RHS or LHS &lt;= #delay RHS a===b a equal to b, including x and z (case equality) a!==b a not equal to b, including x and z (case inequality) a==b a equal to b, result may be unknown (logical equality) a!=b a not equal to b, result may be unknown (logical equality)]]></content>
+      <tags>
+        <tag>Verilog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[VHDL]]></title>
+    <url>%2F2019%2F11%2F02%2FVHDL%2F</url>
+    <content type="text"><![CDATA[VHDL means VHSIC(Very High Speed Integrated Circuit) Hardware Description Language. VHDL vs VerilogVHDL is case-insensitive but Verilog is case-sensitive. VHDL has only single line comment but Verilog has single or multiple line comments.]]></content>
+      <tags>
+        <tag>VHDL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Time-Borrowing]]></title>
+    <url>%2F2019%2F11%2F02%2FTime-Borrowing%2F</url>
+    <content type="text"><![CDATA[Register Balancing(Rebalancing)Register Balancing(Rebalancing) is an XST option/constraint which enables flip-flop retiming algorithm in Synthesis process. The main goal of Register Balancing is to improve design timing performance in the way of moving flip-flops and latches across logic to increase clock frequency. Register Balancing has two categories: Forward Register Balancing: move a set of flip-flops that are at the inputs of a LUT to a single flip-flop at its output Backward Register Balancing: move a flip-flop which is at the output of a LUT to a set of flip-flops at its inputs You can apply Register Balancing constraint globally or to a specific entity, module, signal, flip-flop or clock signal. Refer to Xilinx Answer 39749 for help with applying XST constraints. Some considerations when using Register Balancing: Register Balancing option is disabled by default because it leads to significant design structure changes. The number of flip-flops in the design can be increased or decreased. Register Balancing may happen across cross-clock domain boundaries. Make sure the cross-clock domain timing paths are constrained in the design. The following constraints influence Register Balancing: Keep Hierarchy: Hierarchy preservation limits FF movements inside the block boundaries KEEP: Keep constraint applied to signals does not allow FFs to cross these signals IOB: Register Balancing will be not applied to the FFs having property “IOB=true”]]></content>
+      <tags>
+        <tag>Time Borrowing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Clock-Gating]]></title>
+    <url>%2F2019%2F11%2F02%2FClock-Gating%2F</url>
+    <content type="text"><![CDATA[Clock gating is a power-saving feature in semiconductor microelectronics that enables switching off circuits. Many electronic devices use clock gating to turn off buses, controllers, bridges and parts of processors, to reduce dynamic power consumption. 1. Clock Gating using OR gate Clock is enabled when EN = 0(EN is an active low control signal) Necessary and Sufficient Condition: EN must stabilize within the first half of the clock cycle This is too restrictive a condition, and is hard to enforce in practice 2. Clock Gating using AND gate Clock is enabled when EN = 1 Glitch will appear even if EN stabilizes within the first half (clk = ‘1’) of the clock cycle –this solution does not work 3. Clock Gating using Latch Clock is enabled exactly if EN=1 at the rising edge of the clock Any glitch on EN will be prohibited from reaching GCLK PS: If you want to gating Memory Write, you should use Comb Logic but not latch design because you want to make sure memory is written in the second half of the clock but not entire clock. 4. Clock Gating using MUX However, this design has some disadvantages: Power Area Not suitable for latches, RAMs(Async Operations)]]></content>
+      <tags>
+        <tag>Clock Gating</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[FSM]]></title>
+    <url>%2F2019%2F11%2F02%2FFSM%2F</url>
+    <content type="text"><![CDATA[Moore VS MealyMoore: outputs depend on current state only Mealy: outputs depend on current state and inputs Another DesignOFL delay is part of Data Path delay. If there is a variety in OFL delay, we can design the FSM like II shows without hurting the clock time. Output CodingMoore Mashine can get rid of OFL and directly use state to act as output. But Mealy machine must convert into Moore because OFL also uses input.]]></content>
+      <tags>
+        <tag>Verilog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[BRAM]]></title>
+    <url>%2F2019%2F11%2F02%2FBRAM%2F</url>
+    <content type="text"><![CDATA[Block RAMs (or BRAM) stands for Block Random Access Memory. Block RAMs are used for storing large amounts of data inside of your FPGA. They one of four commonly identified components on an FPGA datasheet. The other three are Flip-Flops, Look-Up Tables (LUTs), and Digital Signal Processors (DSPs). Usually the bigger and more expensive the FPGA, the more Block RAM it will have on it. Since this is found right at the top of an FPGA product overview, it must be important! As an example, the image below shows the Product overview line comparing different Intel Cyclone V FPGAs. A Block RAM (sometimes called embedded memory, or Embedded Block RAM (EBR)), is a discrete part of an FPGA, meaning there are only so many of them available on the chip. Each FPGA has a different amount, so depending on your application you may need more or less Block RAM. Knowing how much you will need gets easier as you become a better Digital Designer. As I said before, it’s used to store “large” amounts of data inside of your FPGA. It’s also possible to store data outside of your FPGA, but that would be done with a device like an SRAM, DRAM, EPROM, SD Card, etc. Block RAMs come in a finite size, 4/8/16/32 kb (kilobits) are common. They have a customizable width and depth. And they’re really useful for lots of applications! Let’s discuss some places where you might find yourself needing to create a Block RAM storage element for your project. Also, if you feel like watching the video version of this content I included that below.]]></content>
+      <tags>
+        <tag>BRAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CDC(Clock Domain Crossing)]]></title>
+    <url>%2F2019%2F11%2F02%2FCDC%2F</url>
+    <content type="text"><![CDATA[FIFO is not consisted of regiters but SSRAMs. For one-bit variation, double register syncronizer is enough. But for multi-bit variation, you need handshake or asyncronous FIFO. The correct method to perform the full comparison is accomplished by synchronizing the rptr into the wclk domain and then there are three conditions that are all necessary for the FIFO to be full: (1) The wptr and the synchronized rptr MSB’s are not equal (because the wptr must have wrapped one more time than the rptr). (2) The wptr and the synchronized rptr 2nd MSB’s are not equal (because an inverted 2nd MSB from one pointer must be tested against the un-inverted 2nd MSB from the other pointer, which is required if the MSB’s are also inverses of each other - see Figure 6 above). (3) All other wptr and synchronized rptr bits must be equal. How to determine the depth of async-FIFO? D = [B - (fre_rd/fre_wr)*(B)*(1/RD)] Where, D = Depth or number of locations in FIFO to store. B = Burst Width, number of words to store before idle time. fre_rd = Read side clock frequency. fre_wr = Write side clock frequency. RD = Read side delay in-between reads. The solution of this kind of problem is to calculate the moment B datas have been written, how many data have not been read? These data must be saved in FIFO. https://hardwaregeeksblog.files.wordpress.com/2016/12/fifodepthcalculationmadeeasy2.pdf]]></content>
+      <tags>
+        <tag>CDC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SSRAM]]></title>
     <url>%2F2019%2F11%2F02%2FSSRAM%2F</url>
     <content type="text"><![CDATA[Synchronous static RAM (SSRAM) is an SRAM that has input and/or output buffers (either register or latch) that are controlled by an externally supplied clock (or clocks). It means we will put registers in front of address(AREG) and control(CREG) and data input(INREG), aka “post-write”. Depending on whether the device has “pipelined” or “flow-through” outputs register provided or not provided.]]></content>
@@ -11,7 +193,7 @@
   <entry>
     <title><![CDATA[Frequency Divider by N]]></title>
     <url>%2F2019%2F11%2F02%2FFrequency-Divider-by-N%2F</url>
-    <content type="text"><![CDATA[A frequency divider, also called a clock divider or scaler or prescaler, is a circuit that takes an input signal of a frequency f_{in}, and generates an output signal of a frequency: f_{out} = \frac{f_{in}}{n}where n is an integer. Phase-locked loop frequency synthesizers make use of frequency dividers to generate a frequency that is a multiple of a reference frequency. Frequency dividers can be implemented for both analog and digital applications. 1、Divide by 2Firstly, we talk about simple frequency divider by 2 circuit.1234567891011121314module frequency_divider_by2(input clk, input rst, output out_clk); reg out_clk_temp;assign out_clk = out_clk_temp;always @(posedge clk) begin if (rst) out_clk_temp &lt;= 0; else out_clk_temp &lt;= ~out_clk;endendmodule 2、Divide by N(Odd)If N is an odd number and we want to make sure 50% duty cycle. 1234567891011121314151617181920212223module frequency_divider_by_odd #(parameter WIDTH = 3, parameter N = 5) (input clk, input rst, output out_clk);reg [WIDTH-1:0] pos_count, neg_count;assign clk_out = ((pos_count &gt; (N&gt;&gt;1)) | (neg_count &gt; (N&gt;&gt;1)));always @(posedge clk) begin if (reset) pos_count &lt;=0; else if (pos_count == N-1) pos_count &lt;= 0; else pos_count &lt;= pos_count +1;endalways @(negedge clk) begin if (reset) neg_count &lt;=0; else if (neg_count == N-1) neg_count &lt;= 0; else neg_count&lt;= neg_count +1;endendmodule We take an example of divide by 3. 3、Divide by N(Even)If N is an even number, it will be simpler. 12345678910111213141516171819202122232425262728module frequency_divider_by_even(input clk, input rst, output out_clk);parameter WIDTH = 3;parameter N = 3;reg [WIDTH-1:0] counter;reg clk_temp;assign out_clk = clk_temp;always @(posedge clk)begin if (rst) begin counter &lt;= 0; clk_temp &lt;= 1&apos;b0; end else if (counter == (N/2 - 1)) begin counter &lt;= counter + 1; clk_temp &lt;= ~clk_temp; end else counter &lt;= counter + 1;endendmodule It can also be used in odd number but the duty cycle cannot be satisfied anymore. We still take an example of divide by 3.]]></content>
+    <content type="text"><![CDATA[A frequency divider, also called a clock divider or scaler or prescaler, is a circuit that takes an input signal of a frequency f_{in}, and generates an output signal of a frequency: f_{out} = \frac{f_{in}}{n}where n is an integer. Phase-locked loop frequency synthesizers make use of frequency dividers to generate a frequency that is a multiple of a reference frequency. Frequency dividers can be implemented for both analog and digital applications. 1、Divide by 2Firstly, we talk about simple frequency divider by 2 circuit.12345678910module frequency_divider_by2(input clk_in, input rst, output reg clk_out); always @(posedge clk_in) begin if (rst) clk_out &lt;= 0; else clk_out &lt;= ~clk_out;endendmodule 2、Divide by N(Odd)If N is an odd number and we want to make sure 50% duty cycle. 1234567891011121314151617181920212223module frequency_divider_by_odd #(parameter WIDTH = 5, parameter N = 5) (input clk_in, input rst, output clk_out);reg [WIDTH-1:0] pos_count, neg_count;assign clk_out = ((pos_count &gt; (N&gt;&gt;1)) | (neg_count &gt; (N&gt;&gt;1)));always @(posedge clk_in) begin if (rst) pos_count &lt;=0; else if (pos_count == N-1) pos_count &lt;= 0; else pos_count &lt;= pos_count +1;endalways @(negedge clk_in) begin if (rst) neg_count &lt;=0; else if (neg_count == N-1) neg_count &lt;= 0; else neg_count&lt;= neg_count +1;endendmodule We take an example of divide by 3. 3、Divide by N(Even)If N is an even number, it will be simpler. 123456789101112131415161718192021222324module frequency_divider_by_even #(parameter WIDTH = 4, parameter N = 4) (input clk_in, input rst, output reg clk_out);reg [WIDTH-1:0] counter;always @(posedge clk_in)begin if (rst) begin counter &lt;= 0; clk_out &lt;= 0; end else if (counter == (N/2 - 1)) begin counter &lt;= 0; clk_out &lt;= ~clk_out; end else counter &lt;= counter + 1;endendmodule This counter method can also be used in odd number for example change N/2 -1 to (N-1)/2 - 1 and add N-1 as the destination but the duty cycle cannot be satisfied anymore. We still take an example of divide by 3.]]></content>
       <tags>
         <tag>Verilog</tag>
       </tags>
