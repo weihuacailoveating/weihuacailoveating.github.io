@@ -11,7 +11,7 @@
   <entry>
     <title><![CDATA[Power]]></title>
     <url>%2F2019%2F11%2F05%2FPower%2F</url>
-    <content type="text"><![CDATA[For dynamic power consumptioin of CMOS: ​ P = \frac{1} {2} * C_{load} * V_{dd}^2 * f * \beta 1、Power Optimization SVS(Static Voltage Scaling) CG(Clock Gating) We have covered this topic. Please refer to that topic. DVFS(Dynamic Voltage and Frequency Scaling)]]></content>
+    <content type="text"><![CDATA[For dynamic power consumptioin of CMOS: ​ P = \frac{1} {2} * C_{load} * V_{dd}^2 * f * \beta 1、Power OptimizationHow to do power optimization? 1.1、SVS(Static Voltage Scaling) 1.2、DVFS(Dynamic Voltage and Frequency Scaling)TBC. 1.3、CG(Clock Gating)We have covered this topic. Please refer to that topic.]]></content>
       <tags>
         <tag>Power</tag>
       </tags>
