@@ -28,7 +28,7 @@
   <entry>
     <title><![CDATA[FinFet]]></title>
     <url>%2F2019%2F11%2F05%2FFinFet%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <content type="text"><![CDATA[TBC.]]></content>
       <tags>
         <tag>FinFET</tag>
       </tags>
@@ -36,7 +36,10 @@
   <entry>
     <title><![CDATA[Logic-Effort]]></title>
     <url>%2F2019%2F11%2F05%2FLogic-Effort%2F</url>
-    <content type="text"><![CDATA[GBH + P]]></content>
+    <content type="text"><![CDATA[TBC. L = G * B * H + P]]></content>
+      <tags>
+        <tag>Logic Effort</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ROM]]></title>

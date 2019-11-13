@@ -6,23 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Time-Borrowing | Cai&#39;s Blog</title>
+  <title>Tag: Logic Effort | Cai&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Register Balancing(Rebalancing)Register Balancing(Rebalancing) is an XST option/constraint which enables flip-flop retiming algorithm in Synthesis process. The main goal of Register Balancing is to im">
-<meta name="keywords" content="Time Borrowing">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Time-Borrowing">
-<meta property="og:url" content="http://yoursite.com/2019/11/02/Time-Borrowing/index.html">
+  <meta name="description" content="Keep hungry, keep foolish!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cai&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/tags/Logic-Effort/index.html">
 <meta property="og:site_name" content="Cai&#39;s Blog">
-<meta property="og:description" content="Register Balancing(Rebalancing)Register Balancing(Rebalancing) is an XST option/constraint which enables flip-flop retiming algorithm in Synthesis process. The main goal of Register Balancing is to im">
+<meta property="og:description" content="Keep hungry, keep foolish!">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/11/02/Time-Borrowing/Register-Balancing.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/11/02/Time-Borrowing/For-Backward.jpg">
-<meta property="og:updated_time" content="2019-11-03T05:25:38.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Time-Borrowing">
-<meta name="twitter:description" content="Register Balancing(Rebalancing)Register Balancing(Rebalancing) is an XST option/constraint which enables flip-flop retiming algorithm in Synthesis process. The main goal of Register Balancing is to im">
-<meta name="twitter:image" content="http://yoursite.com/2019/11/02/Time-Borrowing/Register-Balancing.jpg">
+<meta name="twitter:title" content="Cai&#39;s Blog">
+<meta name="twitter:description" content="Keep hungry, keep foolish!">
   
     <link rel="alternative" href="/atom.xml" title="Cai&#39;s Blog" type="application/atom+xml">
   
@@ -162,237 +157,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Time-Borrowing" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Time-Borrowing
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/11/05/Logic-Effort/" class="archive-article-date">
+  	<time datetime="2019-11-05T20:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/11/05/Logic-Effort/">Logic-Effort</a>
     </h1>
   
 
-        
-        <a href="/2019/11/02/Time-Borrowing/" class="archive-article-date">
-  	<time datetime="2019-11-03T05:09:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Register-Balancing-Rebalancing"><a href="#Register-Balancing-Rebalancing" class="headerlink" title="Register Balancing(Rebalancing)"></a>Register Balancing(Rebalancing)</h3><p>Register Balancing(Rebalancing) is an XST option/constraint which enables flip-flop retiming algorithm in Synthesis process. The main goal of Register Balancing is to improve design timing performance in the way of moving flip-flops and latches across logic to increase clock frequency.</p>
-<p><img src="/2019/11/02/Time-Borrowing/Register-Balancing.jpg" alt="Time Borrowing"></p>
-<p>Register Balancing has two categories:</p>
-<ul>
-<li>Forward Register Balancing: move a set of flip-flops that are at the inputs of a LUT to a single flip-flop at its output</li>
-<li>Backward Register Balancing: move a flip-flop which is at the output of a LUT to a set of flip-flops at its inputs</li>
-</ul>
-<p><img src="/2019/11/02/Time-Borrowing/For-Backward.jpg" alt="For-Backward"></p>
-<p>You can apply Register Balancing constraint globally or to a specific entity, module, signal, flip-flop or clock signal. Refer to Xilinx Answer 39749 for help with applying XST constraints.</p>
-<p>Some considerations when using Register Balancing:</p>
-<ul>
-<li>Register Balancing option is disabled by default because it leads to significant design structure changes.</li>
-<li>The number of flip-flops in the design can be increased or decreased.</li>
-<li>Register Balancing may happen across cross-clock domain boundaries. Make sure the cross-clock domain timing paths are constrained in the design.</li>
-<li>The following constraints influence Register Balancing:<ul>
-<li>Keep Hierarchy: Hierarchy preservation limits FF movements inside the block boundaries</li>
-<li>KEEP: Keep constraint applied to signals does not allow FFs to cross these signals</li>
-<li>IOB: Register Balancing will be not applied to the FFs having property “IOB=true”</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Time Borrowing</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Logic Effort</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/02/Time-Borrowing/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/11/02/VHDL/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          VHDL
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/11/02/Clock-Gating/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Clock-Gating</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Time-Borrowing" data-title="Time-Borrowing" data-url="http://yoursite.com/2019/11/02/Time-Borrowing/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://yoursite.com/2019/11/02/Time-Borrowing/", 
-    sourceId: "Time-Borrowing",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="Time-Borrowing" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "true",
-        conf: "true"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -415,9 +233,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
