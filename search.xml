@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[DFT]]></title>
     <url>%2F2019%2F11%2F05%2FDFT%2F</url>
-    <content type="text"><![CDATA[A die defect is an unintended variation in the physical aspects of a die, such as shown earlier. A fault is a defect that can create an error in computation. This can occur when a logic 1 erroneously becomes a logic 0 or vice versa, or when a transition in logic value occurs to early or late. Faults are usually associated with a common form of defect, such as an open. An error is when a signal has the wrong logic value for a certain period of time. Not all errors create wrong values in state variables. Single stuck at 0 and 1 (SSA 0 or 1): Used in practice Multiple stuck at 0 and 1 (MSA): Used in theory Single shorts ◦ AND short ◦ OR short ◦ Resistive short Multiple shorts – Iddq testing Delay ◦ Single and multiple path: robust and non-robust ◦ Single gate: robust and non-robust ◦ Single input transition fault Switch level ◦ Single stuck-open transistor (SSOpF) ◦ Singe stuck-on transistor (SSOnF)]]></content>
+    <content type="text"><![CDATA[Design for testing or design for testability (DFT) consists of IC design techniques that add testability features to a hardware product design. The added features make it easier to develop and apply manufacturing tests to the designed hardware. The purpose of manufacturing tests is to validate that the product hardware contains no manufacturing defects that could adversely affect the product’s correct functioning. 1、Defect, Fault and ErrorA die defect is an unintended variation in the physical aspects of a die, such as shown earlier. A fault is a defect that can create an error in computation. This can occur when a logic 1 erroneously becomes a logic 0 or vice versa, or when a transition in logic value occurs to early or late. Faults are usually associated with a common form of defect, such as an open. An error is when a signal has the wrong logic value for a certain period of time. Not all errors create wrong values in state variables. 2、Fault Model Single stuck at 0 and 1 (SSA 0 or 1): Used in practice Multiple stuck at 0 and 1 (MSA): Used in theory Single shorts ◦ AND short ◦ OR short ◦ Resistive short Multiple shorts: Iddq testing Delay: ◦ Single and multiple path: robust and non-robust ◦ Single gate: robust and non-robust ◦ Single input transition fault Switch level ◦ Single stuck-open transistor (SSOpF) ◦ Singe stuck-on transistor (SSOnF)]]></content>
       <tags>
         <tag>DFT</tag>
       </tags>
@@ -11,17 +11,27 @@
   <entry>
     <title><![CDATA[Power]]></title>
     <url>%2F2019%2F11%2F05%2FPower%2F</url>
-    <content type="text"><![CDATA[P = 1 / 2 Cload Vdd^2 f B SVS Static Voltage Scaling CG Clock Gating DVFS Dynamic Voltage and Frequency Scaling]]></content>
+    <content type="text"><![CDATA[For dynamic power consumptioin of CMOS: ​ P = \frac{1} {2} * C_{load} * V_{dd}^2 * f * \beta 1、Power Optimization SVS(Static Voltage Scaling) CG(Clock Gating) We have covered this topic. Please refer to that topic. DVFS(Dynamic Voltage and Frequency Scaling)]]></content>
+      <tags>
+        <tag>Power</tag>
+      </tags>
   </entry>
   <entry>
-    <title><![CDATA[JK-Flip-Flop]]></title>
-    <url>%2F2019%2F11%2F05%2FJK-Flip-Flop%2F</url>
-    <content type="text"><![CDATA[The Basic JK Flip-flop Both the S and the R inputs of the previous SR bistable have now been replaced by two inputs called the J and K inputs, respectively after its inventor Jack Kilby. Then this equates to: J = S and K = R. The two 2-input AND gates of the gated SR bistable have now been replaced by two 3-input NAND gates with the third input of each gate connected to the outputs at Q and Q. This cross coupling of the SR flip-flop allows the previously invalid condition of S = “1” and R = “1” state to be used to produce a “toggle action” as the two inputs are now interlocked. If the circuit is now “SET” the J input is inhibited by the “0” status of Q through the lower NAND gate. If the circuit is “RESET” the K input is inhibited by the “0” status of Q through the upper NAND gate. As Q and Q are always different we can use them to control the input. When both inputs J and K are equal to logic “1”, the JK flip flop toggles as shown in the following truth table.]]></content>
+    <title><![CDATA[Flip-Flop]]></title>
+    <url>%2F2019%2F11%2F05%2FFlip-Flop%2F</url>
+    <content type="text"><![CDATA[1、JK Flip-flop Both the S and the R inputs of the previous SR bistable have now been replaced by two inputs called the J and K inputs, respectively after its inventor Jack Kilby. Then this equates to: J = S and K = R. The two 2-input AND gates of the gated SR bistable have now been replaced by two 3-input NAND gates with the third input of each gate connected to the outputs at Q and Q. This cross coupling of the SR flip-flop allows the previously invalid condition of S = “1” and R = “1” state to be used to produce a “toggle action” as the two inputs are now interlocked. If the circuit is now “SET” the J input is inhibited by the “0” status of Q through the lower NAND gate. If the circuit is “RESET” the K input is inhibited by the “0” status of Q through the upper NAND gate. As Q and Q are always different we can use them to control the input. When both inputs J and K are equal to logic “1”, the JK flip flop toggles as shown in the following truth table. 2、D Flip-flop]]></content>
+      <tags>
+        <tag>JKFF</tag>
+        <tag>DFF</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[FinFet]]></title>
     <url>%2F2019%2F11%2F05%2FFinFet%2F</url>
     <content type="text"><![CDATA[]]></content>
+      <tags>
+        <tag>FinFET</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Logic-Effort]]></title>

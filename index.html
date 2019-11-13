@@ -179,16 +179,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>A die defect is an unintended variation in the physical aspects of a die, such as shown earlier.</p>
-<p>A fault is a defect that can create an error in computation. This can occur when a logic 1 erroneously becomes a logic 0 or vice versa, or when a transition in logic value occurs to early or late. Faults are usually associated with a common form of defect, such as an open. </p>
-<p>An error is when a signal has the wrong logic value for a certain period of time. Not all errors create wrong values in state variables.</p>
-<p>Single stuck at 0 and 1 (SSA 0 or 1): Used in practice</p>
-<p>Multiple stuck at 0 and 1 (MSA): Used in theory</p>
-<p>Single shorts ◦ AND short ◦ OR short ◦ Resistive short</p>
-<p>Multiple shorts – Iddq testing</p>
-<p>Delay ◦ Single and multiple path: robust and non-robust ◦ Single gate: robust and non-robust ◦ Single input transition fault </p>
-<p>Switch level ◦ Single stuck-open transistor (SSOpF) ◦ Singe stuck-on transistor (SSOnF)</p>
-
+        <p><strong>Design for testing</strong> or <strong>design for testability</strong> (<strong>DFT</strong>) consists of IC design techniques that add testability features to a hardware product design. The added features make it easier to develop and apply manufacturing tests to the designed hardware. The purpose of manufacturing tests is to validate that the product hardware contains no manufacturing defects that could adversely affect the product’s correct functioning.</p>
+        
+          <a class="article-more-a" href="/2019/11/05/DFT/#more">more >></a>
+        
       
 
       
@@ -257,15 +251,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>P = 1 / 2 <em> Cload </em> Vdd^2 <em> f </em> B</p>
-<p>SVS</p>
-<p>Static Voltage Scaling</p>
-<p>CG</p>
-<p>Clock Gating</p>
-<p>DVFS</p>
-<p>Dynamic Voltage and Frequency Scaling</p>
-<p><img src="/Users/cai/Library/Application Support/typora-user-images/image-20191105123042609.png" alt="image-20191105123042609"></p>
-
+        <p>For dynamic power consumptioin of CMOS:</p>
+<p>​                                                                    <script type="math/tex">P = \frac{1} {2} * C_{load} * V_{dd}^2 * f * \beta</script></p>
+        
+          <a class="article-more-a" href="/2019/11/05/Power/#more">more >></a>
+        
       
 
       
@@ -273,6 +263,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Power</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -303,19 +304,19 @@
 
 
   
-    <article id="post-JK-Flip-Flop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Flip-Flop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/05/JK-Flip-Flop/">JK-Flip-Flop</a>
+      <a class="article-title" href="/2019/11/05/Flip-Flop/">Flip-Flop</a>
     </h1>
   
 
         
-        <a href="/2019/11/05/JK-Flip-Flop/" class="archive-article-date">
+        <a href="/2019/11/05/Flip-Flop/" class="archive-article-date">
   	<time datetime="2019-11-05T20:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-05</time>
 </a>
         
@@ -323,11 +324,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="The-Basic-JK-Flip-flop"><a href="#The-Basic-JK-Flip-flop" class="headerlink" title="The Basic JK Flip-flop"></a>The Basic JK Flip-flop</h3><p><img src="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/sequential-seq13.gif" alt="jk flip flop symbol"></p>
+        <h2 id="1、JK-Flip-flop"><a href="#1、JK-Flip-flop" class="headerlink" title="1、JK Flip-flop"></a>1、JK Flip-flop</h2><p><img src="/2019/11/05/Flip-Flop/JK.png" alt="jk flip flop symbol"></p>
 <p>Both the S and the R inputs of the previous SR bistable have now been replaced by two inputs called the J and K inputs, respectively after its inventor Jack Kilby. Then this equates to: J = S and K = R.</p>
 <p>The two 2-input AND gates of the gated SR bistable have now been replaced by two 3-input NAND gates with the third input of each gate connected to the outputs at Q and Q. This cross coupling of the SR flip-flop allows the previously invalid condition of S = “1” and R = “1” state to be used to produce a “toggle action” as the two inputs are now interlocked.</p>
 <p>If the circuit is now “SET” the J input is inhibited by the “0” status of Q through the lower NAND gate. If the circuit is “RESET” the K input is inhibited by the “0” status of Q through the upper NAND gate. As Q and Q are always different we can use them to control the input. When both inputs J and K are equal to logic “1”, the JK flip flop toggles as shown in the following truth table.</p>
-
+<h2 id="2、D-Flip-flop"><a href="#2、D-Flip-flop" class="headerlink" title="2、D Flip-flop"></a>2、D Flip-flop</h2>
       
 
       
@@ -335,6 +336,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JKFF</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DFF</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -394,6 +410,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FinFET</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -1038,11 +1065,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Branch Prediction</a>
+                <a href="javascript:void(0)" class="js-tag color5">BRAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CMOS</a>
+                <a href="javascript:void(0)" class="js-tag color3">Branch Prediction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1050,27 +1077,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CPU</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Clock Gating</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DFT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">FPGA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Verilog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
+                <a href="javascript:void(0)" class="js-tag color5">CMOS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1078,15 +1085,47 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">CPU</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BRAM</a>
+                <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">FPGA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Clock Gating</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">FinFET</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DFT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JKFF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DFF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Verilog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1102,11 +1141,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SRAM</a>
+                <a href="javascript:void(0)" class="js-tag color1">Pipelining</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color1">Power</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1114,11 +1153,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Synthesis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Pipelining</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1126,15 +1161,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">VHDL</a>
+                <a href="javascript:void(0)" class="js-tag color5">SRAM</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">STA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Synthesis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">VHDL</a>
               </li>
              
               <li class="article-tag-list-item">

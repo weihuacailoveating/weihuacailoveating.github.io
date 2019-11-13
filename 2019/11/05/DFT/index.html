@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>DFT | Cai&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A die defect is an unintended variation in the physical aspects of a die, such as shown earlier. A fault is a defect that can create an error in computation. This can occur when a logic 1 erroneously">
+  <meta name="description" content="Design for testing or design for testability (DFT) consists of IC design techniques that add testability features to a hardware product design. The added features make it easier to develop and apply m">
 <meta name="keywords" content="DFT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DFT">
 <meta property="og:url" content="http://yoursite.com/2019/11/05/DFT/index.html">
 <meta property="og:site_name" content="Cai&#39;s Blog">
-<meta property="og:description" content="A die defect is an unintended variation in the physical aspects of a die, such as shown earlier. A fault is a defect that can create an error in computation. This can occur when a logic 1 erroneously">
+<meta property="og:description" content="Design for testing or design for testability (DFT) consists of IC design techniques that add testability features to a hardware product design. The added features make it easier to develop and apply m">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-05T20:42:49.985Z">
+<meta property="og:updated_time" content="2019-11-13T20:04:35.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DFT">
-<meta name="twitter:description" content="A die defect is an unintended variation in the physical aspects of a die, such as shown earlier. A fault is a defect that can create an error in computation. This can occur when a logic 1 erroneously">
+<meta name="twitter:description" content="Design for testing or design for testability (DFT) consists of IC design techniques that add testability features to a hardware product design. The added features make it easier to develop and apply m">
   
     <link rel="alternative" href="/atom.xml" title="Cai&#39;s Blog" type="application/atom+xml">
   
@@ -179,15 +179,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>A die defect is an unintended variation in the physical aspects of a die, such as shown earlier.</p>
+        <p><strong>Design for testing</strong> or <strong>design for testability</strong> (<strong>DFT</strong>) consists of IC design techniques that add testability features to a hardware product design. The added features make it easier to develop and apply manufacturing tests to the designed hardware. The purpose of manufacturing tests is to validate that the product hardware contains no manufacturing defects that could adversely affect the product’s correct functioning.</p>
+<a id="more"></a>
+<h1 id="1、Defect-Fault-and-Error"><a href="#1、Defect-Fault-and-Error" class="headerlink" title="1、Defect, Fault and Error"></a>1、Defect, Fault and Error</h1><p>A die defect is an unintended variation in the physical aspects of a die, such as shown earlier.</p>
 <p>A fault is a defect that can create an error in computation. This can occur when a logic 1 erroneously becomes a logic 0 or vice versa, or when a transition in logic value occurs to early or late. Faults are usually associated with a common form of defect, such as an open. </p>
 <p>An error is when a signal has the wrong logic value for a certain period of time. Not all errors create wrong values in state variables.</p>
-<p>Single stuck at 0 and 1 (SSA 0 or 1): Used in practice</p>
-<p>Multiple stuck at 0 and 1 (MSA): Used in theory</p>
-<p>Single shorts ◦ AND short ◦ OR short ◦ Resistive short</p>
-<p>Multiple shorts – Iddq testing</p>
-<p>Delay ◦ Single and multiple path: robust and non-robust ◦ Single gate: robust and non-robust ◦ Single input transition fault </p>
-<p>Switch level ◦ Single stuck-open transistor (SSOpF) ◦ Singe stuck-on transistor (SSOnF)</p>
+<h1 id="2、Fault-Model"><a href="#2、Fault-Model" class="headerlink" title="2、Fault Model"></a>2、Fault Model</h1><ol>
+<li><p>Single stuck at 0 and 1 (SSA 0 or 1): Used in practice</p>
+</li>
+<li><p>Multiple stuck at 0 and 1 (MSA): Used in theory</p>
+</li>
+<li><p>Single shorts </p>
+<p>◦ AND short </p>
+<p>◦ OR short </p>
+<p>◦ Resistive short</p>
+</li>
+<li><p>Multiple shorts: Iddq testing</p>
+</li>
+<li><p>Delay:</p>
+<p>◦ Single and multiple path: robust and non-robust </p>
+<p>◦ Single gate: robust and non-robust </p>
+<p>◦ Single input transition fault </p>
+</li>
+<li><p>Switch level </p>
+<p>◦ Single stuck-open transistor (SSOpF) </p>
+<p>◦ Singe stuck-on transistor (SSOnF)</p>
+</li>
+</ol>
 
       
 
@@ -486,11 +504,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Branch Prediction</a>
+                <a href="javascript:void(0)" class="js-tag color5">BRAM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CMOS</a>
+                <a href="javascript:void(0)" class="js-tag color3">Branch Prediction</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,27 +516,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CPU</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Clock Gating</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DFT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">FPGA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Verilog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
+                <a href="javascript:void(0)" class="js-tag color5">CMOS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,15 +524,47 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">CPU</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BRAM</a>
+                <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">FPGA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Clock Gating</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">FinFET</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DFT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JKFF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DFF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Verilog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,11 +580,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SRAM</a>
+                <a href="javascript:void(0)" class="js-tag color1">Pipelining</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color1">Power</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,11 +592,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Synthesis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Pipelining</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,15 +600,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">VHDL</a>
+                <a href="javascript:void(0)" class="js-tag color5">SRAM</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">STA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Synthesis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">VHDL</a>
               </li>
              
               <li class="article-tag-list-item">
