@@ -9,13 +9,14 @@
   <title>Cap-Res | Cai&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Capacitance = e * A / t Resistance = P  L / (W  t) V(t) = Vdd(1 - e^(-t/RC)) if a capacitance voltage increases from 0 to Vdd. td(50% delay) = 0.693RC VR = (CbVb + CsVs)/(Cb + Cs)">
+<meta name="keywords" content="Cap,Res">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cap-Res">
 <meta property="og:url" content="http://yoursite.com/2019/11/04/Cap-Res/index.html">
 <meta property="og:site_name" content="Cai&#39;s Blog">
 <meta property="og:description" content="Capacitance = e * A / t Resistance = P  L / (W  t) V(t) = Vdd(1 - e^(-t/RC)) if a capacitance voltage increases from 0 to Vdd. td(50% delay) = 0.693RC VR = (CbVb + CsVs)/(Cb + Cs)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-04T22:23:16.477Z">
+<meta property="og:updated_time" content="2019-11-14T20:22:48.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cap-Res">
 <meta name="twitter:description" content="Capacitance = e * A / t Resistance = P  L / (W  t) V(t) = Vdd(1 - e^(-t/RC)) if a capacitance voltage increases from 0 to Vdd. td(50% delay) = 0.693RC VR = (CbVb + CsVs)/(Cb + Cs)">
@@ -47,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/hera.JPG" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Weihua Cai</a></h1>
@@ -59,24 +60,24 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">Main</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/">Tags</a></li>
 	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">All</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">Links</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">About Me</a>
     			
             
 		</nav>
@@ -87,9 +88,11 @@
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
 					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
+					<a class="bilibili" target="_blank" href="#" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
 			</div>
 		</nav>
@@ -107,7 +110,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/hera.JPG" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Weihua Cai</h1>
@@ -130,9 +133,11 @@
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
 						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="bilibili" target="_blank" href="#" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
 				</div>
 			</nav>
@@ -141,9 +146,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">Main</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/tags/">Tags</a></li>
 		        
 				</ul>
 			</nav>
@@ -212,6 +217,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Cap</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Res</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -371,7 +391,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Weihua Cai
+    		&copy; 2021 Weihua Cai
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -446,15 +466,15 @@ MathJax.Hub.Queue(function() {
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">All</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">Links</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">About Me</a></li>
       
         
     </ul>
@@ -479,11 +499,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BRAM</a>
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color1">Amdahl-Law</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BRAM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,7 +515,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CDC</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,7 +527,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CDC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Cap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Res</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,6 +575,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LFSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Layout</a>
               </li>
              
@@ -571,11 +611,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">RISCV</a>
+                <a href="javascript:void(0)" class="js-tag color4">ROM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ROM</a>
+                <a href="javascript:void(0)" class="js-tag color1">RISCV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -690,7 +730,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt;请多学习&lt;br&gt;谢谢</div>
   	  	
     	</section>
     

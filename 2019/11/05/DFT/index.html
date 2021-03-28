@@ -16,10 +16,12 @@
 <meta property="og:site_name" content="Cai&#39;s Blog">
 <meta property="og:description" content="Design for testing or design for testability (DFT) consists of IC design techniques that add testability features to a hardware product design. The added features make it easier to develop and apply m">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-13T20:50:31.390Z">
+<meta property="og:image" content="http://yoursite.com/2019/11/05/DFT/Redundancy.png">
+<meta property="og:updated_time" content="2019-11-21T21:00:09.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DFT">
 <meta name="twitter:description" content="Design for testing or design for testability (DFT) consists of IC design techniques that add testability features to a hardware product design. The added features make it easier to develop and apply m">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/05/DFT/Redundancy.png">
   
     <link rel="alternative" href="/atom.xml" title="Cai&#39;s Blog" type="application/atom+xml">
   
@@ -48,7 +50,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/hera.JPG" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Weihua Cai</a></h1>
@@ -60,24 +62,24 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">Main</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/">Tags</a></li>
 	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">All</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">Links</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">About Me</a>
     			
             
 		</nav>
@@ -88,9 +90,11 @@
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
 					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+		        
+					<a class="bilibili" target="_blank" href="#" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
 			</div>
 		</nav>
@@ -108,7 +112,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/hera.JPG" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Weihua Cai</h1>
@@ -131,9 +135,11 @@
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
 						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+			        
+						<a class="bilibili" target="_blank" href="#" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
 				</div>
 			</nav>
@@ -142,9 +148,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">Main</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/tags/">Tags</a></li>
 		        
 				</ul>
 			</nav>
@@ -184,7 +190,10 @@
 <h1 id="1、Defect-Fault-and-Error"><a href="#1、Defect-Fault-and-Error" class="headerlink" title="1、Defect, Fault and Error"></a>1、Defect, Fault and Error</h1><p>A die defect is an unintended variation in the physical aspects of a die, such as shown earlier.</p>
 <p>A fault is a defect that can create an error in computation. This can occur when a logic 1 erroneously becomes a logic 0 or vice versa, or when a transition in logic value occurs to early or late. Faults are usually associated with a common form of defect, such as an open. </p>
 <p>An error is when a signal has the wrong logic value for a certain period of time. Not all errors create wrong values in state variables.</p>
-<h1 id="2、Fault-Model"><a href="#2、Fault-Model" class="headerlink" title="2、Fault Model"></a>2、Fault Model</h1><ul>
+<p>DL = 1 - Y ^ (1 - FC)</p>
+<p>Burn-in is an electrical stress test that employ voltage and temperature to accelerate in timethe electrical failure of the device.</p>
+<h1 id="2、Fault-Model"><a href="#2、Fault-Model" class="headerlink" title="2、Fault Model"></a>2、Fault Model</h1><p>Here we list all the fault models.</p>
+<ul>
 <li>Single stuck at 0 and 1 (SSA 0 or 1): Used in practice</li>
 <li>Multiple stuck at 0 and 1 (MSA): Used in theory</li>
 <li>Single shorts:<ul>
@@ -206,6 +215,11 @@
 </ul>
 </li>
 </ul>
+<p>Redundant: A circuit that has an undetectable fault is said to be redundant.</p>
+<p><img src="/2019/11/05/DFT/Redundancy.png" alt="Redundancy"></p>
+<p>Equivalence and Dominance</p>
+<p>Checkpoint: The checkpoint of combinational circuit are the primary inputs and fanout branches.</p>
+<p>Critical Area:</p>
 
       
 
@@ -310,6 +324,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/11/14/Algorithm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Algorithm
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/11/05/Power/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Power</div>
@@ -396,7 +419,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Weihua Cai
+    		&copy; 2021 Weihua Cai
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -471,15 +494,15 @@ MathJax.Hub.Queue(function() {
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">All</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">Links</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">About Me</a></li>
       
         
     </ul>
@@ -504,11 +527,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">BRAM</a>
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color1">Amdahl-Law</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">BRAM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,7 +543,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CDC</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,7 +555,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CDC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Chisel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Cap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Res</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,6 +603,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">LFSR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Layout</a>
               </li>
              
@@ -596,11 +639,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">RISCV</a>
+                <a href="javascript:void(0)" class="js-tag color4">ROM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ROM</a>
+                <a href="javascript:void(0)" class="js-tag color1">RISCV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -715,7 +758,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br&gt;请多学习&lt;br&gt;谢谢</div>
   	  	
     	</section>
     
